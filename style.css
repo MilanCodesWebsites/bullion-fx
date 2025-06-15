@@ -1,0 +1,2147 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Manrope', sans-serif;
+    margin: 0;
+    background-color: #121212;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ /* Navbar Container */
+ .navbar-container {
+    max-width: 1000px; /* Max width for desktop */
+    background-color: #1F1F1F; /* Slightly lighter dark grey for navbar */
+    border-radius: 50px; /* Pill shape */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6); /* Darker, more prominent shadow */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px; /* Vertical and horizontal padding */
+    box-sizing: border-box;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+
+    /* Sticky properties for universal centering */
+    position: sticky;
+    top: 20px; /* Stick to 20px from the top of the viewport */
+    left: 0; /* Allow it to stretch from left edge */
+    right: 0; /* Allow it to stretch to right edge */
+    margin: 0 auto; /* This centers the element when max-width is hit */
+
+    z-index: 1000; /* Ensure it stays on top of other content */
+    min-width: 320px; /* Minimum width for the navbar itself */
+    transition: all 0.3s ease; /* Transition all relevant properties for smoothness */
+}
+
+/* Logo Styling */
+.navbar-logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #FFFFFF; /* White text for logo */
+    text-decoration: none;
+    padding: 5px 0; /* Align with other items */
+}
+
+/* Navigation Links (Desktop) */
+.navbar-links-desktop {
+    display: flex; /* Always display on desktop */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1; /* Allow links to take available space */
+    justify-content: center; /* Center the links */
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-links-desktop li {
+    margin: 0 15px;
+}
+
+.navbar-links-desktop a {
+    text-decoration: none;
+    color: #F0F0F0; /* Off-white text for links */
+    font-weight: 500;
+    font-size: 1.05em;
+    padding: 10px 5px;
+    display: block;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar-links-desktop a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #007BFF; /* Blue accent color */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar-links-desktop a:hover {
+    color: #007BFF; /* Blue accent on hover */
+}
+
+.navbar-links-desktop a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Auth Buttons Container (Desktop) */
+.navbar-auth-desktop {
+    display: flex; /* Always display on desktop */
+    align-items: center;
+    gap: 15px; /* Space between buttons */
+}
+
+.navbar-auth-desktop button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px; /* Rounded buttons */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.navbar-auth-desktop .signup-btn {
+    background-color: #007BFF; /* Blue accent primary button */
+    color: #FFFFFF; /* White text for contrast */
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.navbar-auth-desktop .signup-btn:hover {
+    background-color: #0056b3; /* Slightly darker blue on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+.navbar-auth-desktop .login-btn {
+    background-color: transparent;
+    color: #007BFF; /* Blue accent text for login button */
+    border: 2px solid #007BFF; /* Blue accent border */
+}
+
+.navbar-auth-desktop .login-btn:hover {
+    background-color: rgba(0, 123, 255, 0.1); /* Subtle blue tint on hover */
+    color: #007BFF;
+    border-color: #007BFF;
+}
+
+/* Hamburger Menu Icon */
+.hamburger-menu {
+    display: none; /* Hidden by default on larger screens */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px; /* Reduced width */
+    height: 18px; /* Reduced height */
+    cursor: pointer;
+    position: relative;
+    z-index: 100; /* Ensure it's above other elements when open */
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #e0e0e0; /* Light bars for dark background */
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger animation for 'x' shape */
+.hamburger-menu.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg); /* Adjusted for new height */
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg); /* Adjusted for new height */
+}
+
+/* Mobile Menu Content (Dropdown) */
+.mobile-menu-content {
+    display: flex; /* Flex container for links and auth buttons */
+    flex-direction: column; /* Stack them vertically */
+    width: calc(100% - 40px); /* Full width minus padding for mobile dropdown */
+    max-width: 400px; /* Max width for mobile menu */
+    text-align: center;
+    position: absolute;
+    top: 100%; /* Position right below the navbar */
+    margin-top: 10px; /* Space between navbar and dropdown menu */
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px); /* Initial hidden state with slide effect */
+    background-color: #1F1F1F; /* Dark grey theme background for dropdown */
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6); /* Darker shadow */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 99;
+    transition: all 0.3s ease-in-out;
+    padding-bottom: 20px; /* Padding for buttons at the bottom */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Mobile specific links and auth buttons, nested inside mobile-menu-content */
+.mobile-menu-content .navbar-links-mobile {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Ensure these are flex for stacking */
+    flex-direction: column;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.mobile-menu-content .navbar-links-mobile li {
+    margin: 10px 0;
+}
+
+.mobile-menu-content .navbar-links-mobile a {
+    text-decoration: none;
+    color: #F0F0F0; /* Off-white text for mobile links */
+    font-weight: 500;
+    font-size: 1.1em;
+    padding: 12px 0;
+    display: block;
+    position: relative;
+    transition: color 0.3s ease;
+}
+.mobile-menu-content .navbar-links-mobile a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #007BFF; /* Blue accent */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+.mobile-menu-content .navbar-links-mobile a:hover {
+    color: #007BFF; /* Blue accent on hover */
+}
+.mobile-menu-content .navbar-links-mobile a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+.mobile-menu-content .navbar-auth-mobile {
+    display: flex; /* Ensure these are flex for stacking */
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 0 0;
+    gap: 10px;
+}
+
+.mobile-menu-content .navbar-auth-mobile button {
+    width: calc(100% - 60px); /* Adjust for parent padding and button margins */
+    margin: 0 auto; /* Center buttons */
+    max-width: 300px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.mobile-menu-content .navbar-auth-mobile .signup-btn {
+    background-color: #007BFF;
+    color: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.mobile-menu-content .navbar-auth-mobile .signup-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+.mobile-menu-content .navbar-auth-mobile .login-btn {
+    background-color: transparent;
+    color: #007BFF;
+    border: 2px solid #007BFF;
+}
+
+.mobile-menu-content .navbar-auth-mobile .login-btn:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    color: #007BFF;
+    border-color: #007BFF;
+}
+
+
+/* Responsive Design - Media Queries */
+@media (max-width: 768px) {
+    .navbar-container {
+        /* Allow sticky element to take full width of viewport minus fixed padding */
+        padding: 10px 20px;
+         /* Slightly less rounded on small screens */
+        top: 15px; /* Stick closer to top on mobile */
+        max-width: calc(100% - 40px); /* Allow it to be full width with 20px side margin */
+        /* Remove any left/right/transform here as margin: auto is primary for centering */
+        /* The margin: 0 auto; already ensures centering */
+    }
+
+    .hamburger-menu {
+        display: flex; /* Show hamburger on smaller screens */
+    }
+
+    /* Hide desktop links and auth buttons on mobile */
+    .navbar-links-desktop,
+    .navbar-auth-desktop {
+        display: none;
+    }
+
+    /* Show mobile menu content when menu is open */
+    .navbar-container.menu-open .mobile-menu-content {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0); /* Slide into view */
+        pointer-events: auto;
+        /* Width already set at 100% minus padding in .mobile-menu-content general rules */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-logo {
+        font-size: 1.5em;
+    }
+
+    .navbar-container {
+        padding: 10px 15px;
+    }
+
+    .hamburger-menu {
+        width: 25px; /* Stay same as 768px */
+        height: 18px; /* Stay same as 768px */
+    }
+}
+
+/* Hero Section Container */
+.hero-section {
+    display: flex;
+    flex-wrap: wrap; /* Allows columns to stack on smaller screens */
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh; /* Minimum height for the section */
+    padding: 40px 20px;
+    box-sizing: border-box;
+    background-color: #121212; /* Black background */
+    position: relative; /* For absolute positioning of patterns */
+    overflow: hidden; /* Hide overflow of patterns */
+}
+
+/* Abstract Blue Patterns */
+.hero-section::before,
+.hero-section::after {
+    content: '';
+    position: absolute;
+    background: rgba(0, 123, 255, 0.1); /* Subtle blue tint */
+    border-radius: 50%;
+    filter: blur(80px); /* Soft blur */
+    opacity: 0.6;
+    z-index: 0; /* Ensure patterns are behind content */
+}
+
+.hero-section::before {
+    width: 300px;
+    height: 300px;
+    top: -50px;
+    left: -50px;
+}
+
+.hero-section::after {
+    width: 400px;
+    height: 400px;
+    bottom: -80px;
+    right: -80px;
+    background: rgba(0, 123, 255, 0.08); /* Slightly different tint for contrast */
+}
+
+/* Content Wrapper - to keep content above patterns */
+.hero-content-wrapper {
+    position: relative;
+    z-index: 1; /* Ensure content is above background patterns */
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 100%;
+    gap: 40px; /* Space between text and image columns */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Text Content Column */
+.text-column {
+    flex: 1; /* Allows it to grow and shrink */
+    min-width: 300px; /* Minimum width before wrapping */
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* Styling for the dynamic main headline */
+.main-headline-dynamic {
+    font-size: 3.5em;
+    font-weight: 800;
+    color: #FFFFFF; /* White for main heading */
+    margin-bottom: 20px;
+    line-height: 1.2;
+    min-height: 1.2em; /* Ensure consistent height for transition */
+    transition: opacity 1s ease-in-out; /* Smooth transition for text change */
+    display: block; /* Ensure it behaves like a block element */
+}
+
+.text-column p {
+    font-size: 1.1em;
+    color: #B0B0B0; /* Light grey for body text */
+    margin-bottom: 30px;
+    max-width: 550px;
+}
+
+.text-column .explore-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #007BFF; /* Blue accent for button */
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+
+.text-column .explore-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* Image Column */
+.image-column {
+    flex: 1;
+    min-width: 300px; /* Minimum width before wrapping */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-column img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px; /* Slightly rounded corners for the image */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .main-headline-dynamic {
+        font-size: 2.8em;
+    }
+    .text-column p {
+        font-size: 1em;
+    }
+    .hero-section {
+        padding: 30px 15px;
+    }
+    .text-column, .image-column {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content-wrapper {
+        flex-direction: column-reverse; /* Stack columns vertically */
+        text-align: center; /* Center align text when stacked */
+    }
+
+    .text-column {
+        order: 2; /* Put text column below image on small screens */
+        min-width: unset; /* Remove min-width to allow full width */
+        width: 100%;
+    }
+
+    .main-headline-dynamic {
+        font-size: 2.2em;
+        text-align: center;
+        margin-bottom: 10px; /* Adjust margin for mobile */
+    }
+
+    .text-column p {
+        text-align: center;
+        max-width: 100%; /* Ensure paragraph takes full width */
+    }
+
+    .text-column .explore-btn {
+        margin: 0 auto; /* Center the button */
+        display: block;
+        width: fit-content;
+    }
+
+    .image-column {
+        order: 1; /* Put image column above text on small screens */
+        min-width: unset; /* Remove min-width */
+        width: 100%;
+        margin-bottom: 20px; /* Space between image and text on mobile */
+    }
+
+    /* Adjust pattern sizes for smaller screens */
+    .hero-section::before {
+        width: 200px;
+        height: 200px;
+        top: -30px;
+        left: -30px;
+        filter: blur(60px);
+    }
+
+    .hero-section::after {
+        width: 250px;
+        height: 250px;
+        bottom: -50px;
+        right: -50px;
+        filter: blur(50px);
+    }
+}
+
+@media (max-width: 480px) {
+    .main-headline-dynamic {
+        font-size: 1.8em;
+    }
+    .text-column p {
+        font-size: 0.9em;
+    }
+    .text-column .explore-btn {
+        padding: 12px 25px;
+    }
+    .hero-section {
+        padding: 20px 10px;
+    }
+}
+
+/* Trusted Organizations Section Container */
+.trusted-organizations-section {
+    width: 100%;
+    max-width: 1000px; /* Reduced max-width for the section */
+    padding: 20px 15px; /* Further reduced padding */
+    box-sizing: border-box;
+    background-color: transparent; /* Transparent background as requested */
+    text-align: center;
+    margin: auto;
+}
+
+.trusted-organizations-section h3 {
+    font-size: 1.4em; /* Further reduced header font size */
+    font-weight: 700;
+    color: #007BFF; /* Blue color for header text */
+    margin-bottom: 25px; /* Further reduced margin */
+}
+
+/* Logos Grid Container */
+.logos-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap */
+    justify-content: center;
+    align-items: center;
+    gap: 25px; /* Further reduced space between logos */
+}
+
+/* Individual Logo Item */
+.logo-item {
+    flex: 0 0 auto; /* Don't grow, don't shrink, base on content */
+    width: 150px; /* Default width for logos, significantly reduced */
+    height: auto;
+    opacity: 0.8; /* Slight transparency for subtle look */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: flex; /* Flex to center image */
+    justify-content: center;
+    align-items: center;
+    padding: 8px; /* Reduced padding for the image within its box */
+    box-sizing: border-box;
+}
+
+.logo-item img {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+}
+
+.logo-item:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
+    opacity: 1; /* Full opacity on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .trusted-organizations-section h2 {
+        font-size: 1.6em; /* Adjusted for smaller screens */
+        margin-bottom: 20px;
+    }
+
+    .logos-grid {
+        /* For 2x2 grid on mobile */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        gap: 15px; /* Smaller gap for mobile */
+        padding: 0 10px; /* Add some horizontal padding */
+    }
+
+    .logo-item {
+        width: 100%; /* Take full width of grid column */
+        max-width: 120px; /* Max width for mobile logos, further reduced */
+        margin: 0 auto; /* Center logos within their grid cell */
+        padding: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .trusted-organizations-section h2 {
+        font-size: 1.2em;
+    }
+    .logos-grid {
+        gap: 10px; /* Even smaller gap */
+    }
+    .logo-item {
+        max-width: 80px; /* Smaller max width for very small screens */
+        padding: 4px;
+    }
+}
+
+ /* Benefits Section Container */
+ .benefits-section {
+    width: 100%;
+    max-width: 1200px;
+    padding: 50px 20px;
+    box-sizing: border-box;
+    background-color: transparent; /* Transparent background */
+    display: flex;
+    flex-wrap: wrap; /* Allow columns to stack on smaller screens */
+    align-items: center;
+    justify-content: center;
+    gap: 40px; /* Space between text and image columns */
+    margin: auto;
+}
+
+/* Text Content Column */
+.benefits-text-column {
+    flex: 1; /* Allows it to grow and shrink */
+    min-width: 300px; /* Minimum width before wrapping */
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.benefits-text-column h2 {
+    font-size: 1.2em; /* Smaller header for "Why choose BullionFX" */
+    font-weight: 600;
+    color: #007BFF; /* Blue accent color */
+    margin-bottom: 5px; /* Reduced margin for closer proximity to h1 */
+    text-transform: uppercase; /* Match screenshot style */
+}
+
+.benefits-text-column h1 {
+    font-size: 2.8em; /* Main heading font size */
+    font-weight: 800;
+    color: #FFFFFF; /* White for main heading */
+    margin-bottom: 40px;
+    line-height: 1.2;
+}
+
+/* Benefits Grid (Strict 2x2 layout for larger screens) */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Enforce 2 columns */
+    gap: 30px 40px; /* Vertical and horizontal gap adjusted to match screenshot visual more closely */
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start; /* Aligns icon and text content to the top */
+    text-align: left;
+    gap: 15px; /* Space between icon and text */
+}
+
+.benefit-item .icon-wrapper {
+    flex-shrink: 0; /* Prevent icon from shrinking */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 123, 255, 0.15); /* Subtle blue background for icon */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+}
+
+.benefit-item .icon-wrapper i { /* Styling for Font Awesome icons */
+    font-size: 24px; /* Size of the icon */
+    color: #007BFF; /* Blue icon color */
+}
+
+.benefit-item .text-content h3 {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #FFFFFF; /* White for benefit title */
+    margin-bottom: 5px;
+}
+
+.benefit-item .text-content p {
+    font-size: 0.9em; /* Font size for benefit description */
+    color: #B0B0B0; /* Light grey for benefit description */
+}
+
+/* Image Column */
+.benefits-image-column {
+    flex: 1;
+    min-width: 300px; /* Minimum width before wrapping */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    /* Align image to the right on larger screens as per screenshot */
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.benefits-image-column img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px; /* Rounded corners for the image */
+    
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .benefits-text-column h1 {
+        font-size: 2.2em;
+    }
+    .benefits-text-column h2 {
+        font-size: 1em;
+    }
+    .benefits-grid {
+        /* On slightly smaller desktops/large tablets, might adjust gap or allow more fluid */
+        gap: 25px 30px; /* Adjusted gap for smaller screens */
+    }
+    .benefits-image-column {
+        justify-content: center; /* Center image if space is tighter */
+    }
+}
+
+@media (max-width: 768px) {
+    .benefits-section {
+        flex-direction: column-reverse; /* Stack columns vertically */
+        text-align: center; /* Center align text when stacked */
+        padding: 40px 15px;
+    }
+
+    .benefits-text-column {
+        order: 2; /* Put text column below image on small screens */
+        min-width: unset;
+        width: 100%;
+    }
+
+    .benefits-text-column h2 {
+        text-align: center;
+    }
+
+    .benefits-text-column h1 {
+        font-size: 2em;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr; /* Force single column on smaller screens */
+        gap: 20px; /* Reduced gap */
+    }
+
+    .benefit-item {
+        /* Align items to center for better mobile presentation if icon and text are stacked */
+        flex-direction: column; /* Stack icon and text within item */
+        align-items: center;
+        text-align: center;
+    }
+    .benefit-item .icon-wrapper {
+        margin-bottom: 5px; /* Space between icon and text */
+    }
+
+
+    .benefits-image-column {
+        order: 1; /* Put image column above text on small screens */
+        min-width: unset;
+        width: 100%;
+        margin-bottom: 30px; /* Space between image and text on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .benefits-text-column h1 {
+        font-size: 1.8em;
+    }
+    .benefits-text-column h2 {
+        font-size: 0.9em;
+    }
+    .benefits-grid {
+        gap: 15px;
+    }
+    .benefit-item .text-content h3 {
+        font-size: 1em;
+    }
+    .benefit-item .text-content p {
+        font-size: 0.8em; /* Adjusted for smallest screens */
+    }
+}
+
+.stats-section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.stat-card {
+    background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    padding: 28px 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.stat-number {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #3b82f6;
+    margin-bottom: 8px;
+    line-height: 1;
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    color: #9ca3af;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .stat-card {
+        padding: 32px 24px;
+    }
+
+    .stat-number {
+        font-size: 3rem;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        gap: 16px;
+        padding: 0 10px;
+    }
+
+    .stat-card {
+        padding: 28px 20px;
+    }
+
+    .stat-number {
+        font-size: 2.6rem;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .body {
+        padding: 40px 16px;
+    }
+
+    .stats-grid {
+        gap: 12px;
+        padding: 0;
+    }
+
+    .stat-card {
+        padding: 24px 16px;
+    }
+
+    .stat-number {
+        font-size: 2.2rem;
+    }
+
+    .stat-label {
+        font-size: 0.85rem;
+    }
+}
+
+.feature-section {
+    color: white;
+    padding: 80px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 120px;
+}
+
+.feature-item:last-child {
+    margin-bottom: 0;
+}
+
+.feature-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.feature-content {
+    flex: 1;
+    max-width: 500px;
+}
+
+.feature-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature-title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.feature-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: 32px;
+}
+
+.feature-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+}
+
+.feature-image {
+    max-width: 400px;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 500;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.feature-image span {
+    position: relative;
+    z-index: 1;
+}
+
+.feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .feature-section {
+        padding: 60px 0;
+    }
+
+    .feature-item {
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 80px;
+        text-align: center;
+    }
+
+    .feature-item.reverse {
+        flex-direction: column;
+    }
+
+    .feature-title {
+        font-size: 2.25rem;
+    }
+
+    .feature-description {
+        font-size: 1rem;
+    }
+
+    .feature-image {
+        max-width: 100%;
+        
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .feature-title {
+        font-size: 1.875rem;
+    }
+
+    .feature-image {
+        height: 200px;
+    }
+}
+
+.crypto-showcase-section {
+    background: #0a0f1c;
+    min-height: 90vh;
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.crypto-showcase-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+    radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(147, 197, 253, 0.06) 0%, transparent 60%),
+    linear-gradient(45deg, transparent 40%, rgba(59, 130, 246, 0.02) 50%, transparent 60%);
+pointer-events: none;
+
+}
+
+.blue{
+    background: #0a0f1c; 
+}
+
+.blue::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+    radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(147, 197, 253, 0.06) 0%, transparent 60%),
+    linear-gradient(45deg, transparent 40%, rgba(59, 130, 246, 0.02) 50%, transparent 60%);
+pointer-events: none;
+}
+
+.section-container {
+    max-width: 1700px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.header-content {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.tagline {
+    color: #007BFF;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.main-headline {
+    color: #ffffff;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    max-width: 1000px;
+    margin: 0 auto;
+    letter-spacing: -0.02em;
+}
+
+.features2s-layout {
+    display: grid;
+    grid-template-columns: 1fr 400px 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 2rem 4rem;
+    align-items: center;
+    min-height: 600px;
+}
+
+.phone-placeholder {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    width: 100%;
+    max-width: 320px;
+    height: 640px;
+    margin: 0 auto;
+    border-radius: 3rem;
+    background: linear-gradient(145deg, #1e293b, #334155);
+    
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        0 25px 50px -12px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+}
+
+.phone-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 6px;
+    background: #475569;
+    border-radius: 3px;
+}
+
+.features2-card {
+    background: rgba(30, 41, 59, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(71, 85, 105, 0.2);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 240px;
+    transition: all 0.3s ease;
+}
+
+.features2-card:hover {
+    transform: translateY(-4px);
+    background: rgba(30, 41, 59, 0.4);
+}
+
+.card-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.planning-card .card-icon {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+}
+
+.refinement-card .card-icon {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+}
+
+.prototype-card .card-icon {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+}
+
+.support-card .card-icon {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+}
+
+.card-title {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.card-description {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.planning-card {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: end;
+    align-self: start;
+}
+
+.refinement-card {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: start;
+    align-self: start;
+}
+
+.prototype-card {
+    grid-column: 1;
+    grid-row: 3;
+    justify-self: end;
+    align-self: end;
+}
+
+.support-card {
+    grid-column: 3;
+    grid-row: 3;
+    justify-self: start;
+    align-self: end;
+}
+
+/* Responsive Design - Same Layout, Smaller Elements */
+@media (max-width: 1200px) {
+    .features2s-layout {
+        grid-template-columns: 1fr 350px 1fr;
+        gap: 1.5rem 3rem;
+    }
+    
+    .phone-placeholder {
+        max-width: 280px;
+        height: 560px;
+    }
+    
+    .main-headline {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .crypto-showcase-section {
+        padding: 4rem 1.5rem;
+    }
+    
+    .features2s-layout {
+        grid-template-columns: 1fr 300px 1fr;
+        gap: 1rem 2rem;
+        min-height: 500px;
+    }
+    
+    .phone-placeholder {
+        max-width: 260px;
+        height: 520px;
+    }
+    
+    .main-headline {
+        font-size: 2.5rem;
+    }
+    
+    .features2-card {
+        max-width: 200px;
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .crypto-showcase-section {
+        padding: 3rem 1rem;
+    }
+    
+    .header-content {
+        margin-bottom: 3rem;
+    }
+    
+    .main-headline {
+        font-size: 2rem;
+    }
+    
+    .features2s-layout {
+        grid-template-columns: 1fr 250px 1fr;
+        gap: 0.75rem 1.5rem;
+        min-height: 400px;
+    }
+    
+    .phone-placeholder {
+        max-width: 220px;
+        height: 440px;
+        font-size: 0.9rem;
+        padding: 1.5rem;
+    }
+    
+    .features2-card {
+        display: none;
+    }
+    
+    .card-icon {
+        width: 2rem;
+        height: 2rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .card-description {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .crypto-showcase-section {
+        padding: 2rem 0.75rem;
+    }
+    
+    .main-headline {
+        font-size: 1.75rem;
+    }
+    
+    .tagline {
+        font-size: 0.9rem;
+    }
+    
+    .features2s-layout {
+        grid-template-columns: 1fr 200px 1fr;
+        gap: 0.5rem 1rem;
+        min-height: 350px;
+    }
+    
+    .phone-placeholder {
+        max-width: 180px;
+        height: 360px;
+        font-size: 0.8rem;
+        padding: 1rem;
+    }
+    
+    .phone-placeholder::before {
+        width: 80px;
+        height: 4px;
+    }
+    
+    .features2-card {
+        max-width: 140px;
+        padding: 0.75rem;
+    }
+    
+    .card-icon {
+        width: 1.75rem;
+        height: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .card-title {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .card-description {
+        font-size: 0.7rem;
+        line-height: 1.3;
+    }
+}
+
+ /* Section Container - Based on Crypto Landing Page Template Screenshot */
+ .bullionfx-steps-screenshot-section {
+    width: 100%;
+    max-width: 1400px; /* Wider max-width to accommodate image layout */
+    margin: 0 auto; /* Center the section on the page */
+    padding: 80px 40px; /* Increased padding */
+    box-sizing: border-box;
+    background-color: transparent; /* Transparent background */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 60px; /* Space between columns */
+    position: relative; /* For subtle background patterns */
+    color: #E0E0E0; /* Default text color for the section */
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Subtle Background Gradients/Shapes (mimicking screenshot) */
+.bullionfx-steps-screenshot-section::before,
+.bullionfx-steps-screenshot-section::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+    filter: blur(50px);
+    z-index: 0;
+    pointer-events: none;
+}
+.bullionfx-steps-screenshot-section::before {
+    width: 250px;
+    height: 250px;
+    background: #9D00FF; /* Purple glow */
+    top: 10%;
+    left: 5%;
+}
+.bullionfx-steps-screenshot-section::after {
+    width: 300px;
+    height: 300px;
+    background: #00A69D; /* Teal glow */
+    bottom: 15%;
+    right: 10%;
+}
+
+
+/* Image Column (Left side) */
+.image-placeholder-column {
+    flex: 1;
+    min-width: 350px; /* Adjust as needed */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; /* Center content within its flex item */
+    align-items: center;
+    min-height: 400px; /* Ensure sufficient height for the image */
+    z-index: 1; /* Ensure this column is above background patterns */
+}
+
+.image-placeholder-column img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 15px; /* Rounded corners for the image */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    display: block; /* Remove extra space below image */
+}
+
+
+/* Text Content Column (Right side) */
+.text-content-column {
+    flex: 1;
+    min-width: 400px; /* Adjust as needed */
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: left;
+    z-index: 1; /* Ensure this column is above background patterns */
+}
+
+.text-content-column .template-header {
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #555; /* Muted grey for header */
+    margin-bottom: 10px;
+    text-transform: uppercase; /* As per screenshot */
+}
+
+.text-content-column h1 {
+    font-size: 3.2em; /* Main heading */
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.text-content-column .description {
+    font-size: 1.1em;
+    color: #B0B0B0;
+    margin-bottom: 40px;
+    max-width: 550px;
+}
+
+/* Steps List */
+.steps-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.steps-list li {
+    display: flex;
+    align-items: center; /* Vertically align icon/number and text */
+    margin-bottom: 25px; /* Space between list items */
+    gap: 15px; /* Space between icon and text */
+}
+
+.steps-list li:last-child {
+    margin-bottom: 0;
+}
+
+.steps-list li .step-icon-number {
+    flex-shrink: 0;
+    width: 30px; /* Size of the circle */
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em; /* Font size for numbers 1, 2, 3 */
+    font-weight: 700;
+    color: #FFFFFF; /* White number */
+    background-color: #007BFF; /* Blue background for the number circle */
+    border-radius: 50%;
+}
+
+.steps-list li .step-text {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #F0F0F0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1100px) {
+    .bullionfx-steps-screenshot-section {
+        padding: 60px 20px;
+    }
+    .image-placeholder-column {
+        min-height: 350px; /* Adjust height for smaller screens */
+    }
+    .text-content-column h1 {
+        font-size: 2.8em;
+    }
+    .text-content-column .description {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .bullionfx-steps-screenshot-section {
+        flex-direction: column-reverse; /* Stack columns vertically */
+        text-align: center; /* Center align text when stacked */
+        padding: 40px 15px;
+        gap: 40px;
+    }
+
+    .image-placeholder-column {
+        order: 1; /* Image column first on mobile */
+        min-width: unset;
+        width: 100%;
+        min-height: 300px; /* Smaller height for mobile image section */
+    }
+
+    .text-content-column {
+        order: 2; /* Text column second on mobile */
+        min-width: unset;
+        width: 100%;
+        text-align: center;
+    }
+
+    .text-content-column .template-header {
+        text-align: center;
+    }
+    .text-content-column h1 {
+        font-size: 2.2em;
+        text-align: center;
+    }
+    .text-content-column .description {
+        text-align: center;
+        max-width: 100%;
+    }
+    .steps-list {
+        padding: 0 10px; /* Add some padding for list on mobile */
+    }
+    .steps-list li {
+        flex-direction: column; /* Stack icon and text for features */
+        align-items: center;
+        text-align: center;
+        gap: 5px; /* Smaller gap */
+    }
+    .steps-list li .step-icon-number {
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bullionfx-steps-screenshot-section {
+        padding: 30px 10px;
+    }
+    .image-placeholder-column {
+        min-height: 250px; /* Further reduce height for very small screens */
+    }
+
+    .text-content-column h1 {
+        font-size: 1.8em;
+    }
+    .text-content-column .description {
+        font-size: 0.9em;
+    }
+    .steps-list li .step-text {
+        font-size: 1em;
+    }
+    .steps-list li .step-icon-number {
+        width: 25px;
+        height: 25px;
+        font-size: 1em;
+    }
+}
+
+.faq-section {
+   
+    padding: 60px 20px 100px;
+    min-height: 100vh;
+    position: relative;
+}
+
+.faq-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(180deg, transparent 0%, rgba(59, 130, 246, 0.15) 100%);
+    pointer-events: none;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.popular-questions {
+    font-size: 14px;
+    color: #9ca3af;
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+
+.popular-questions .highlight {
+    color: #3b82f6;
+}
+
+.main-title {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+    color: #E0E0E0;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #9ca3af;
+    font-weight: 400;
+}
+
+.faq-list {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.2s ease;
+}
+
+.faq-item:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+.question-text {
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    flex: 1;
+    margin-right: 20px;
+}
+
+.plus-icon {
+    width: 20px;
+    height: 20px;
+    color: #3b82f6;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .plus-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0;
+}
+
+.faq-answer.active {
+    max-height: 200px;
+    padding: 0 0 20px 0;
+}
+
+.answer-content {
+    color: #9ca3af;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .faq-section {
+        padding: 40px 16px 60px;
+    }
+
+    .faq-question {
+        padding: 16px 0;
+    }
+
+    .question-text {
+        font-size: 16px;
+        margin-right: 16px;
+    }
+
+    .plus-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
+ /* Main Section Block */
+ .bfx-features-section {
+    color: #f0f0f0;
+    background-color: #121212;
+    border-radius: 12px;
+    padding: 40px;
+    margin: auto; /* Optional: Adds some space around the section when standalone */
+    max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Responsive layout for the main section */
+@media (min-width: 992px) {
+    .bfx-features-section {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+/* Left content area: Description and Features */
+.bfx-features-section__content {
+    flex: 1;
+    padding-right: 20px; /* Space between text and image on larger screens */
+}
+
+@media (max-width: 991px) {
+    .bfx-features-section__content {
+        padding-right: 0; /* Remove padding on smaller screens */
+    }
+}
+
+/* Tagline/Label above the main heading */
+.bfx-features-section__label {
+    font-size: 0.9em;
+    color: #2196F3; /* Blue accent */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block;
+    font-weight: 600;
+}
+
+/* Main Heading */
+.bfx-features-section__heading {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+    .bfx-features-section__heading {
+        font-size: 2em;
+    }
+}
+
+/* Introductory Paragraph */
+.bfx-features-section__paragraph {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #b0b0b0;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    .bfx-features-section__paragraph {
+        font-size: 1em;
+    }
+}
+
+/* Grid for feature items */
+.bfx-features-section__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .bfx-features-section__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Individual feature item */
+.bfx-features-section__feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1em;
+    color: #f0f0f0;
+}
+
+.bfx-features-section__feature-item svg {
+    color: #2196F3; /* Blue accent */
+    min-width: 20px;
+    min-height: 20px;
+}
+
+/* Right visual area (image/dashboard) */
+.bfx-features-section__visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px; /* Space between text and image on larger screens */
+}
+
+@media (max-width: 991px) {
+    .bfx-features-section__visual {
+        padding-left: 0; /* Remove padding on smaller screens */
+    }
+}
+
+/* Image placeholder/container */
+.bfx-features-section__image-placeholder {
+    width: 100%;
+   /* Maintain aspect ratio (e.g., 600x400) */
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #b0b0b0;
+    font-size: 1.2em;
+    font-weight: 600;
+    overflow: hidden;
+    position: relative;
+}
+
+.bfx-features-section__image-placeholder img {
+   
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+button{
+    font-family: "Manrope";
+}
+
+/* BullionFX Simple Footer Styles */
+.bullionfx-footer {
+    background-color: #1a202c; /* Dark blue-grey background */
+    color: #e2e8f0; /* Light text for contrast */
+    padding: 40px 20px;
+    box-sizing: border-box;
+    width: 100%;
+    border-top: 1px solid #2d3748; /* Subtle top border */
+    display: flex;
+    flex-direction: column; /* Stack content vertically on small screens */
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text for simpler layout */
+}
+
+.footer-content-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between main sections */
+}
+
+@media (min-width: 768px) {
+    .bullionfx-footer {
+        text-align: left; /* Align text left on larger screens */
+    }
+    .footer-content-wrapper {
+        flex-direction: row; /* Arrange content in rows on larger screens */
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+
+/* Footer Branding */
+.footer-brand {
+    flex: 2; /* Takes more space on wider screens */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center; /* Center brand elements on small screens */
+}
+
+@media (min-width: 768px) {
+    .footer-brand {
+        align-items: flex-start; /* Align brand elements left on larger screens */
+    }
+}
+
+.footer-logo {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #4299e1; /* BullionFX blue */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-logo svg {
+    width: 28px;
+    height: 28px;
+}
+
+.footer-description {
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: #a0aec0;
+    max-width: 400px; /* Limit width for readability */
+}
+
+/* Social Icons */
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    background-color: #2d3748;
+    border-radius: 6px;
+    color: #e2e8f0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #4299e1;
+    color: #ffffff;
+}
+
+.social-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Navigation Columns */
+.footer-nav-group {
+    flex: 1;
+    margin-top: 20px; /* Space above nav columns on small screens */
+}
+
+@media (min-width: 768px) {
+    .footer-nav-group {
+        margin-top: 0; /* No extra margin on larger screens */
+    }
+}
+
+.nav-heading {
+    font-size: 1em;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    margin-bottom: 8px;
+}
+
+.nav-link {
+    color: #a0aec0;
+    text-decoration: none;
+    font-size: 0.88em;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #4299e1;
+}
+
+/* Copyright Section */
+.footer-copyright {
+    width: 100%;
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid #2d3748;
+    font-size: 0.85em;
+    color: #a0aec0;
+}
+
+.activity-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(71, 85, 105, 0.3);
+    border-radius: 12px;
+    padding: 12px 16px;
+    max-width: 320px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transform: translateX(-110%);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+}
+
+.activity-notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.notification-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+    margin-top: 6px;
+    flex-shrink: 0;
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.4);
+}
+
+.notification-text {
+    color: #e2e8f0;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+.notification-name {
+    color: #f1f5f9;
+    font-weight: 500;
+}
+
+.notification-action {
+    color: #60a5fa;
+    font-weight: 500;
+}
+
+.notification-time {
+    color: #94a3b8;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+    .activity-notification {
+        left: 16px;
+        bottom: 16px;
+        max-width: calc(100vw - 32px);
+        padding: 10px 14px;
+    }
+
+    .notification-text {
+        font-size: 13px;
+    }
+
+    .notification-time {
+        font-size: 11px;
+    }
+}

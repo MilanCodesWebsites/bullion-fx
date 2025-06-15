@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BullionFX | Home</title>
+    <!-- Google Fonts - Inter for clean typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <div class="gtranslate_wrapper"></div>
+<script>window.gtranslateSettings = {"default_language":"en","wrapper_selector":".gtranslate_wrapper","switcher_vertical_position":"top","float_switcher_open_direction":"bottom"}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+    <nav class="navbar-container">
+        <a href="#" class="navbar-logo">bullionfx.</a>
+
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Desktop/Tablet View Navigation Links -->
+        <ul class="navbar-links-desktop" id="navbarLinksDesktop">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <!-- Desktop/Tablet View Auth Buttons -->
+        <div class="navbar-auth-desktop" id="navbarAuthDesktop">
+            <button class="signup-btn">Sign Up</button>
+            <button class="login-btn">Login</button>
+        </div>
+
+        <!-- Mobile Menu Content (hidden on desktop, shown on mobile via JS) -->
+        <div class="mobile-menu-content" id="mobileMenuContent">
+            <ul class="navbar-links-mobile">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="navbar-auth-mobile">
+                <button class="signup-btn">Sign Up</button>
+                <button class="login-btn">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content-wrapper">
+            <div class="text-column">
+                <!-- Dynamic Headline Section -->
+                <div class="main-headline-dynamic" id="dynamicHeadline"></div>
+
+                <p>Trade cryptocurrencies with ease, security, and advanced features on our cutting-edge platform.</p>
+                <a href="#" class="explore-btn">Explore More</a>
+            </div>
+            <div class="image-column">
+                <img src="imgs/hero-img.svg" alt="Future of crypto trading and secure exchange platform">
+            </div>
+        </div>
+    </section>
+    <section class="trusted-organizations-section">
+        <h3>Backed by Leading Cryptocurrency Giants</h3>
+        <div class="logos-grid">
+            <div class="logo-item">
+                <!-- Replace src with your actual image path (e.g., "path/to/mage-logo.png") -->
+                <img src="imgs/mage.svg" alt="Mage Logo">
+            </div>
+            <div class="logo-item">
+                <!-- Replace src with your actual image path -->
+                <img src="imgs/jupiter.svg" alt="Jupiter Logo">
+            </div>
+            <div class="logo-item">
+                <!-- Replace src with your actual image path -->
+                <img src="imgs/circuit.svg" alt="Circuit Logo">
+            </div>
+            <div class="logo-item">
+                <!-- Replace src with your actual image path -->
+                <img src="imgs/sunset.svg" alt="Sunset Logo">
+            </div>
+        </div>
+    </section>
+    <div id="coinmarketcap-widget-marquee" coins="1,1027,825,5426,1839,52,8536,3408" currency="USD" theme="dark" transparent="true" show-symbol-logo="true"></div>
+    <div class="blue">
+    <section class="benefits-section">
+        <div class="benefits-text-column">
+            <h2>WHY CHOOSE BULLIONFX</h2>
+            <h1>Features of the BullionFX Platform</h1>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="icon-wrapper">
+                        <!-- Font Awesome Shield Alt Icon -->
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="text-content">
+                        <h3>Secure & Regulated Trading</h3>
+                        <p>Advanced security, regulatory compliance.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon-wrapper">
+                        <!-- Font Awesome Chart Line Icon -->
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="text-content">
+                        <h3>Real-time Market Insights</h3>
+                        <p>Live data, advanced charts, informed decisions.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon-wrapper">
+                        <!-- Font Awesome Wallet Icon -->
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="text-content">
+                        <h3>Seamless Asset Management</h3>
+                        <p>Manage, deposit, withdraw, track assets securely.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon-wrapper">
+                        <!-- Font Awesome Headset Icon -->
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="text-content">
+                        <h3>24/7 Dedicated Support</h3>
+                        <p>Round-the-clock assistance from expert team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="benefits-image-column">
+            <!-- Image from user upload. Using it as is. -->
+            <img src="imgs/benefits.gif" alt="BullionFX Platform Dashboard">
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" data-target="45" data-suffix="K+">0K+</div>
+                <div class="stat-label">Active users</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number" data-target="24" data-suffix="/7">0/7</div>
+                <div class="stat-label">User Support</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number" data-target="160" data-suffix="+">0+</div>
+                <div class="stat-label">Countries</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number" data-target="22" data-prefix="$" data-suffix="M+">$0M+</div>
+                <div class="stat-label">Trade Volume</div>
+            </div>
+        </div>
+    </section>
+    <br>
+</div>
+    <section class="feature-section">
+        <div class="container">
+            <!-- Feature 1: Investment Management -->
+            <div class="feature-item">
+                <div class="feature-content">
+                    <h2 class="feature-title">Manage all your investments all over the world</h2>
+                    <p class="feature-description">
+                        Effortlessly manage your global investments from one comprehensive platform, ensuring a unified approach to growing your wealth.
+                    </p>
+                    
+                </div>
+                <div class="feature-visual">
+                    <div class="feature-image">
+                        
+                        <img src="imgs/features-1.avif" alt=""><!-- Replace with: <img src="your-image-1.jpg" alt="Investment dashboard"> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2: Financial Advisors -->
+            <div class="feature-item reverse">
+                <div class="feature-content">
+                    <h2 class="feature-title">Reach financial goals faster with help of experienced advisors</h2>
+                    <p class="feature-description">
+                        Accelerate your path to financial milestones with guidance from our team of seasoned advisors who tailor strategies to your needs.
+                    </p>
+                </div>
+                <div class="feature-visual">
+                    <div class="feature-image">
+                        <img src="imgs/features-2.gif" alt="">
+                        <!-- Replace with: <img src="your-image-2.jpg" alt="Team of advisors"> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3: Portfolio Management -->
+            <div class="feature-item">
+                <div class="feature-content">
+                    <h2 class="feature-title">Build and manage your stock portfolio</h2>
+                    <p class="feature-description">
+                        Construct and maintain a diversified stock portfolio that reflects your financial goals and risk tolerance.
+                    </p>
+                </div>
+                <div class="feature-visual">
+                    <div class="feature-image">
+                        <img src="imgs/features-3.avif" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="crypto-showcase-section">
+        <div class="section-container">
+            <div class="header-content">
+                <p class="tagline">Unlock a New Experience</p>
+                <h1 class="main-headline">One platform with multiple options to give you freedom of trading</h1>
+            </div>
+            
+            <div class="features2s-layout">
+                <div class="features2-card planning-card">
+                    <div class="card-icon">
+                        <i data-lucide="plus" size="20"></i>
+                    </div>
+                    <h3 class="card-title">Planning</h3>
+                    <p class="card-description">Map the crypto projects scope with framer template</p>
+                </div>
+                
+                <div class="phone-placeholder">
+                    <img src="imgs/why-us.avif" width="120%" alt="">
+                </div>
+                
+                <div class="features2-card refinement-card">
+                    <div class="card-icon">
+                        <i data-lucide="gem" size="20"></i>
+                    </div>
+                    <h3 class="card-title">Refinement</h3>
+                    <p class="card-description">Refine & improve your crypto landing page for better view</p>
+                </div>
+                
+                <div class="features2-card prototype-card">
+                    <div class="card-icon">
+                        <i data-lucide="settings" size="20"></i>
+                    </div>
+                    <h3 class="card-title">Prototype</h3>
+                    <p class="card-description">Build crypto website test for your product and apps</p>
+                </div>
+                
+                <div class="features2-card support-card">
+                    <div class="card-icon">
+                        <i data-lucide="rocket" size="20"></i>
+                    </div>
+                    <h3 class="card-title">Scale and support</h3>
+                    <p class="card-description">Deploy product live and ensure expert support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bullionfx-steps-screenshot-section">
+        <div class="image-placeholder-column">
+            <!-- Simple image placeholder - replace the src with your actual image URL -->
+            <img src="imgs/steps-gif.gif" alt="BullionFX Account Setup Image">
+        </div>
+
+        <div class="text-content-column">
+            <div class="template-header">GET STARTED WITH BULLIONFX</div>
+            <h1>Open Your BullionFX Account in 3 Simple Steps</h1>
+            <p class="description">Our streamlined process makes it incredibly easy to set up your account and begin your journey into secure and efficient cryptocurrency trading.</p>
+
+            <ul class="steps-list">
+                <li>
+                    <div class="step-icon-number">1</div>
+                    <span class="step-text">Register Your BullionFX Account Securely</span>
+                </li>
+                <li>
+                    <div class="step-icon-number">2</div>
+                    <span class="step-text">Fund Your Wallet with any cryptocurrency of your choice.</span>
+                </li>
+                <li>
+                    <div class="step-icon-number">3</div>
+                    <span class="step-text">Trade seamlessly with ultra-low spreads.</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <header class="header">
+                <p class="popular-questions">Popular <span class="highlight">questions</span></p>
+                <h1 class="main-title">Learn more about BullionFX</h1>
+                <p class="subtitle">Trade crypto confidently with fast execution</p>
+            </header>
+    
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="question-text">What is BullionFX?</span>
+                        <i data-lucide="plus" class="plus-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            BullionFX is a modern crypto trading platform offering secure wallets, lightning-fast trades, and support for a wide range of digital assets.
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="question-text">How does the BullionFX wallet system work?</span>
+                        <i data-lucide="plus" class="plus-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            Users deposit funds directly into their BullionFX wallet for instant access to trading. The wallet supports real-time transfers and is tightly integrated with the platform’s trading engine.
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="question-text">Is BullionFX available internationally?</span>
+                        <i data-lucide="plus" class="plus-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            Yes, BullionFX is accessible to users globally, subject to regional regulations and compliance. We continuously expand our availability across compliant markets.
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="question-text">Which cryptocurrencies can I trade on BullionFX?</span>
+                        <i data-lucide="plus" class="plus-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            We support major coins like Bitcoin (BTC), Ethereum (ETH), Solana (SOL), and other trending assets. Our listings are regularly updated based on liquidity and demand.
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="question-text">Is my account and data secure?</span>
+                        <i data-lucide="plus" class="plus-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            Absolutely. BullionFX uses bank-grade encryption, biometric login options, two-factor authentication, and cold wallet storage for maximum protection.
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="question-text">Are there any fees for deposits or withdrawals?</span>
+                        <i data-lucide="plus" class="plus-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            Deposit and Withdrawal fees vary based on blockchain network conditions. We maintain transparent, competitive rates which are always visible before you confirm a transaction.
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="question-text">Does BullionFX support advanced trading tools?</span>
+                        <i data-lucide="plus" class="plus-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            Yes, BullionFX is built for both beginners and pros. You can trade with limit orders, stop-loss, and view detailed charts using integrated tools and real-time market data.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bfx-features-section">
+        <div class="bfx-features-section__content">
+            <span class="bfx-features-section__label">BullionFX Advantage</span>
+            <h2 class="bfx-features-section__heading">Unlock the Future of Digital Assets with BullionFX</h2>
+            <p class="bfx-features-section__paragraph">Experience secure, transparent, and efficient trading of tokenized physical gold. BullionFX offers unparalleled stability and accessibility in the digital asset space.</p>
+
+            <div class="bfx-features-section__grid">
+                <div class="bfx-features-section__feature-item">
+                    <i data-lucide="shield-check"></i>
+                    <span>Highly Secure Transactions</span>
+                </div>
+                <div class="bfx-features-section__feature-item">
+                    <i data-lucide="dollar-sign"></i>
+                    <span>Cost-Efficient Trading</span>
+                </div>
+                <div class="bfx-features-section__feature-item">
+                    <i data-lucide="gantt-chart"></i>
+                    <span>Transparent & Auditable</span>
+                </div>
+                <div class="bfx-features-section__feature-item">
+                    <i data-lucide="trending-up"></i>
+                    <span>Real Gold Backing</span>
+                </div>
+                <div class="bfx-features-section__feature-item">
+                    <i data-lucide="zap"></i>
+                    <span>Seamless Integration</span>
+                </div>
+                <div class="bfx-features-section__feature-item">
+                    <i data-lucide="lock"></i>
+                    <span>Decentralized Custody</span>
+                </div>
+                <div class="bfx-features-section__feature-item">
+                    <i data-lucide="earth"></i>
+                    <span>Global Accessibility</span>
+                </div>
+                <div class="bfx-features-section__feature-item">
+                    <i data-lucide="bar-chart-2"></i>
+                    <span>Real-time Market Data</span>
+                </div>
+            </div>
+        </div>
+        <div class="bfx-features-section__visual">
+            <div class="bfx-features-section__image-placeholder">
+                <img src="imgs/benefits.avif" alt="BullionFX Dashboard Placeholder">
+                </div>
+        </div>
+    </section>
+    <div class="activity-notification" id="activityNotification">
+        <div class="notification-content">
+            <div class="notification-indicator"></div>
+            <div>
+                <div class="notification-text" id="notificationText"></div>
+                <div class="notification-time" id="notificationTime"></div>
+            </div>
+        </div>
+    </div>
+    <footer class="bullionfx-footer">
+        <div class="footer-content-wrapper">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <i data-lucide="gold"></i>
+                    <span>BullionFX</span>
+                </div>
+                <p class="footer-description">
+                    Leading the future of digital assets by tokenizing physical gold, offering unparalleled stability and accessibility.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <i data-lucide="twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i data-lucide="instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i data-lucide="facebook"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-nav-group">
+                <h3 class="nav-heading">Quick Links</h3>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Benefits</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Upgrade</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav-group">
+                <h3 class="nav-heading">Legal</h3>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#" class="nav-link">Terms & Conditions</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Privacy Policy</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Cookie Policy</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            &copy; <span id="currentYear"></span> BullionFX. All rights reserved.
+        </div>
+    </footer>
+    <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script><div id="coinmarketcap-widget-marquee" coins="1,1027,825,5426,1839,52,8536,3408" currency="USD" theme="dark" transparent="true" show-symbol-logo="true"></div>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
