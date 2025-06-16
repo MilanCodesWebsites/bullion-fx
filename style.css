@@ -2145,3 +2145,153 @@ button{
         font-size: 11px;
     }
 }
+
+    /* Testimonial Carousel Styles */
+.bfx-carousel-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    background-color: #1a2a3a; /* Darker blue for the carousel background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    padding: 30px;
+    box-sizing: border-box;
+    /* Responsive adjustments */
+    margin: 20px auto; /* Add some margin for smaller screens */
+}
+
+.bfx-carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.bfx-testimonial-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    padding: 20px; /* Add padding inside slides */
+}
+
+.bfx-testimonial-slide.active {
+    display: flex; /* Show active slide */
+    opacity: 1;
+}
+
+.bfx-testimonial-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    width: 100%; /* Ensure content takes full width of its parent */
+}
+
+.bfx-testimonial-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Make it a circle */
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid #6699ff; /* Blue border for avatar */
+    box-shadow: 0 0 10px rgba(102, 153, 255, 0.5); /* Subtle glow */
+}
+
+.bfx-testimonial-text {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #c0c0c0; /* Slightly lighter grey for quotes */
+    font-style: italic; /* Italicize testimonial text */
+    padding: 0 10px; /* Padding for text */
+}
+
+.bfx-testimonial-author {
+    font-size: 1em;
+    font-weight: bold;
+    color: #6699ff; /* Blue color for author name */
+    text-shadow: 0 0 5px rgba(102, 153, 255, 0.3); /* Subtle text shadow */
+}
+
+.bfx-carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(102, 153, 255, 0.7); /* Semi-transparent blue buttons */
+    color: white;
+    border: none;
+    padding: 12px 18px; /* Larger padding for better touch targets */
+    cursor: pointer;
+    font-size: 1.8em; /* Larger font size for arrows */
+    border-radius: 50%; /* Circular buttons */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px; /* Fixed width for circular shape */
+    height: 45px; /* Fixed height for circular shape */
+}
+
+.bfx-carousel-button:hover {
+    background-color: #6699ff; /* Solid blue on hover */
+    transform: translateY(-50%) scale(1.1); /* Slight scale on hover */
+}
+
+.bfx-carousel-button.bfx-prev {
+    left: 10px;
+}
+
+.bfx-carousel-button.bfx-next {
+    right: 10px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .bfx-carousel-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .bfx-testimonial-text {
+        font-size: 1em;
+    }
+
+    .bfx-testimonial-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .bfx-carousel-button {
+        padding: 8px 12px;
+        font-size: 1.5em;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bfx-carousel-container {
+        padding: 10px;
+    }
+
+    .bfx-testimonial-text {
+        font-size: 0.9em;
+    }
+
+    .bfx-testimonial-avatar {
+        width: 70px;
+        height: 70px;
+    }
+
+    .bfx-carousel-button {
+        padding: 6px 10px;
+        font-size: 1.2em;
+        width: 35px;
+        height: 35px;
+    }
+}
