@@ -11,13 +11,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="stylesheet" href="loading.css">
 </head>
 <body>
-    <div class="gtranslate_wrapper"></div>
-<script>window.gtranslateSettings = {"default_language":"en","wrapper_selector":".gtranslate_wrapper","switcher_vertical_position":"top","float_switcher_open_direction":"bottom"}</script>
-<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+    <div class="loading-screen">
+        <img src="bull.gif" alt="Bull Running" class="bull-gif" />
+        <div class="progress-track">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+      </div>
+    <div class="main-app-container" id="main-app-container">
+    
+   
     <nav class="navbar-container">
-        <a href="#" class="navbar-logo">bullionfx.</a>
+        <a href="index.html" class="navbar-logo">bullionfx.</a>
 
         <div class="hamburger-menu" id="hamburgerMenu">
             <span></span>
@@ -27,29 +35,29 @@
 
         <!-- Desktop/Tablet View Navigation Links -->
         <ul class="navbar-links-desktop" id="navbarLinksDesktop">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="features.html">Features</a></li>
+           
         </ul>
 
         <!-- Desktop/Tablet View Auth Buttons -->
         <div class="navbar-auth-desktop" id="navbarAuthDesktop">
-            <button class="signup-btn">Sign Up</button>
-            <button class="login-btn">Login</button>
+            <a href="signup.html"><button class="signup-btn">Sign Up</button></a>
+            <a href="login.html"><button class="login-btn">Login</button></a>
         </div>
 
         <!-- Mobile Menu Content (hidden on desktop, shown on mobile via JS) -->
         <div class="mobile-menu-content" id="mobileMenuContent">
             <ul class="navbar-links-mobile">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Features</a></li>
+               
             </ul>
             <div class="navbar-auth-mobile">
-                <button class="signup-btn">Sign Up</button>
-                <button class="login-btn">Login</button>
+                <a href="signup.html"><button class="signup-btn">Sign Up</button></a>
+            <a href="login.html"><button class="login-btn">Login</button></a>
             </div>
         </div>
     </nav>
@@ -553,10 +561,12 @@
             &copy; <span id="currentYear"></span> BullionFX. All rights reserved.
         </div>
     </footer>
+</div>
     <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script><div id="coinmarketcap-widget-marquee" coins="1,1027,825,5426,1839,52,8536,3408" currency="USD" theme="dark" transparent="true" show-symbol-logo="true"></div>
     <script>
         lucide.createIcons();
     </script>
     <script src="script.js"></script>
+    <script src="loading-script.js"></script>
 </body>
 </html>

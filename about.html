@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BullionFX | About</title>
+    <!-- Google Fonts - Inter for clean typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="about.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="stylesheet" href="loading.css">
+</head>
+<body>
+    <div class="loading-screen">
+        <img src="bull.gif" alt="Bull Running" class="bull-gif" />
+        <div class="progress-track">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+      </div>
+    <div class="main-app-container" id="main-app-container">
+    <nav class="navbar-container">
+        <a href="index.html" class="navbar-logo">bullionfx.</a>
+
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Desktop/Tablet View Navigation Links -->
+        <ul class="navbar-links-desktop" id="navbarLinksDesktop">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="features.html">Features</a></li>
+           
+        </ul>
+
+        <!-- Desktop/Tablet View Auth Buttons -->
+        <div class="navbar-auth-desktop" id="navbarAuthDesktop">
+            <a href="signup.html"><button class="signup-btn">Sign Up</button></a>
+            <a href="login.html"><button class="login-btn">Login</button></a>
+        </div>
+
+        <!-- Mobile Menu Content (hidden on desktop, shown on mobile via JS) -->
+        <div class="mobile-menu-content" id="mobileMenuContent">
+            <ul class="navbar-links-mobile">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Features</a></li>
+               
+            </ul>
+            <div class="navbar-auth-mobile">
+                <a href="signup.html"><button class="signup-btn">Sign Up</button></a>
+            <a href="login.html"><button class="login-btn">Login</button></a>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="about-section">
+        <div class="container about-container">
+            <div class="about-content">
+                <span class="about-badge">
+                    <i data-lucide="star" class="badge-icon"></i>
+                    POWERING DIGITAL WEALTH
+                </span>
+                <h1>About <span class="blue-text">BullionFX</span></h1>
+                <p>
+                    BullionFX is redefining the future of digital wealth. We're creating an ecosystem where serious investors can grow, manage, and secure their crypto portfolios with precision, confidence, and elite-level infrastructure.
+                </p>
+                <div class="about-actions">
+                    <a href="signup.html" class="btn primary-btn">
+                        Start Investing
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                    <a href="features.html" class="btn secondary-btn">Explore More</a>
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="image-placeholder">
+                    <!-- You can insert branding image or animation -->
+                </div>
+            </div>
+        </div>
+        <div class="about-stats-container">
+            <div class="stat-item">
+                <div class="stat-icon-wrapper">
+                    <i data-lucide="shield-check"></i>
+                </div>
+                <h3>$500M+</h3>
+                <p>Capital Traded</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon-wrapper">
+                    <i data-lucide="users"></i>
+                </div>
+                <h3>30K+</h3>
+                <p>Active Investors</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon-wrapper">
+                    <i data-lucide="zap"></i>
+                </div>
+                <h3>99.99%</h3>
+                <p>Platform Uptime</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon-wrapper">
+                    <i data-lucide="globe"></i>
+                </div>
+                <h3>160+</h3>
+                <p>Countries Served</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="mission-section">
+        <div class="container mission-container">
+            <div class="mission-image">
+                <div class="image-placeholder">
+                    <!-- Add mission-aligned visual or mock dashboard -->
+                </div>
+            </div>
+            <div class="mission-content">
+                <div class="mission-title">
+                    <div class="mission-icon">
+                        <i data-lucide="target"></i>
+                    </div>
+                    <h2>Our Mission</h2>
+                </div>
+                <p>
+                    At BullionFX, our mission is to empower individuals and institutions with tools to thrive in the digital asset economy. We’re bridging traditional finance and blockchain with intuitive investment paths and institutional-grade infrastructure.
+                </p>
+                <p>
+                    Whether you're a newcomer or a high-net investor, our platform is designed to simplify crypto engagement while amplifying opportunities.
+                </p>
+                <ul>
+                    <li>
+                        <i data-lucide="check-circle"></i>
+                        Regulated crypto investment tools
+                    </li>
+                    <li>
+                        <i data-lucide="check-circle"></i>
+                        Real ownership and transparent trading
+                    </li>
+                    <li>
+                        <i data-lucide="check-circle"></i>
+                        Education, analytics, and insight-rich features
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="built-for-section">
+        <div class="container built-for-container">
+            <div class="built-for-content">
+                <h2>Built for Modern Wealth Builders</h2>
+                <p>
+                    BullionFX combines powerful blockchain technology with seamless user experience to help investors grow smarter and faster in the digital finance era.
+                </p>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i data-lucide="lock"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Secure Wallet Systems</h4>
+                            <p>Protect your funds with cutting-edge, multi-layered security</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i data-lucide="line-chart"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Real-Time Analytics</h4>
+                            <p>Gain instant insights into your portfolio performance and trends</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i data-lucide="smartphone"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Cross-Device Platform</h4>
+                            <p>Trade and manage investments anywhere, anytime</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i data-lucide="credit-card"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>BullionFX Crypto Card</h4>
+                            <p>Use your crypto in the real world with our global card offering</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="built-for-image">
+                <div class="image-placeholder">
+                    <!-- Insert dashboard mockup or card preview -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="values-section">
+        <div class="container values-container">
+            <div class="section-header">
+                <h2>Our Core Values</h2>
+                <p>Everything we build, we build with purpose—backed by strong values and a commitment to investor success.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i data-lucide="shield"></i>
+                    </div>
+                    <h4>Security First</h4>
+                    <p>Every feature is designed with military-grade protection in mind.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <h4>Investor-Centric</h4>
+                    <p>Your goals guide our roadmap. We build with and for our users.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <h4>Performance</h4>
+                    <p>Fast execution, real-time insights, and reliable infrastructure at scale.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i data-lucide="globe"></i>
+                    </div>
+                    <h4>Global Reach</h4>
+                    <p>Access markets and opportunities across the world, 24/7.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <div class="crypto-investment-plan">
+        <div class="plan-content-wrapper">
+            <h1 class="section-title">Our Crypto Investment Plans</h1>
+
+            <div class="plan-cards-grid">
+
+                <!-- Starter Tier -->
+                <div class="investment-card">
+                    <div class="card-icon-container">
+                        <i data-lucide="trending-up"></i>
+                    </div>
+                    <h2 class="card-plan-title">Starter Tier</h2>
+                    <p class="card-price">$300</p>
+                    <ul class="feature-list">
+                        <li class="feature-list-item"><i data-lucide="check-circle"></i> Top Crypto Access</li>
+                        <li class="feature-list-item"><i data-lucide="check-circle"></i> Basic Wallet Security</li>
+                        <li class="feature-list-item"><i data-lucide="check-circle"></i> Weekly Market News</li>
+                        <li class="feature-list-item"><i data-lucide="check-circle"></i> Entry-Level Insights</li>
+                    </ul>
+                    <a href="signup.html"><button class="enroll-button">Enroll Now</button></a>
+                </div>
+            
+                <!-- Growth Tier -->
+                <div class="investment-card">
+                    <div class="card-icon-container">
+                        <i data-lucide="bar-chart-2"></i>
+                    </div>
+                    <h2 class="card-plan-title">Growth Tier</h2>
+                    <p class="card-price">$1,000</p>
+                    <ul class="feature-list">
+                        <li class="feature-list-item"><i data-lucide="check-circle"></i> Diverse Crypto Options</li>
+                        <li class="feature-list-item"><i data-lucide="check-circle"></i> Improved Wallet Security</li>
+                        <li class="feature-list-item"><i data-lucide="check-circle"></i> Bi-Weekly Strategy Calls</li>
+                        <li class="feature-list-item"><i data-lucide="check-circle"></i> Access to DeFi Tools</li>
+                    </ul>
+                    <a href="signup.html"><button class="enroll-button">Enroll Now</button></a>
+                </div>
+            
+                <!-- Premium Tier -->
+                <div class="investment-card">
+                    <div class="card-icon-container">
+                        <i data-lucide="crown"></i>
+                    </div>
+                    <h2 class="card-plan-title">Premium Tier</h2>
+                    <p class="card-price">$10,000</p>
+                    <ul class="feature-list">
+                        <li class="feature-list-item"><i data-lucide="check-circle"></i> Custom Crypto Plans</li>
+                        <li class="feature-list-item"><i data-lucide="check-circle"></i> Dedicated Advisor</li>
+                        <li class="feature-list-item"><i data-lucide="check-circle"></i> Monthly Performance Reviews</li>
+                        <li class="feature-list-item"><i data-lucide="check-circle"></i> NFT & Metaverse Access</li>
+                    </ul>
+                    <a href="signup.html"><button class="enroll-button">Enroll Now</button></a>
+                </div>
+            
+                <!-- Elite Tier -->
+                <div class="investment-card">
+                    <div class="card-icon-container">
+                        <i data-lucide="gem"></i>
+                    </div>
+                    <h2 class="card-plan-title">Elite Tier</h2>
+                    <p class="card-price">$501,000+</p>
+                    <ul class="feature-list">
+                        <li class="feature-list-item"><i data-lucide="check-circle"></i> Full Wealth Management</li>
+                        <li class="feature-list-item"><i data-lucide="check-circle"></i> 24/7 Expert Access</li>
+                        <li class="feature-list-item"><i data-lucide="check-circle"></i> Advanced Staking Solutions</li>
+                        <li class="feature-list-item"><i data-lucide="check-circle"></i> Blockchain Event Access</li>
+                    </ul>
+                    <a href="signup.html"><button class="enroll-button">Enroll Now</button></a>
+                </div>
+            
+            </div>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <footer class="bullionfx-footer">
+        <div class="footer-content-wrapper">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <i data-lucide="gold"></i>
+                    <span>BullionFX</span>
+                </div>
+                <p class="footer-description">
+                    Leading the future of digital assets by tokenizing physical gold, offering unparalleled stability and accessibility.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <i data-lucide="twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i data-lucide="instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i data-lucide="facebook"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-nav-group">
+                <h3 class="nav-heading">Quick Links</h3>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Benefits</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Upgrade</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav-group">
+                <h3 class="nav-heading">Legal</h3>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#" class="nav-link">Terms & Conditions</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Privacy Policy</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Cookie Policy</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            &copy; <span id="currentYear"></span> BullionFX. All rights reserved.
+        </div>
+    </footer>
+    </div>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
+    <script src="loading-script.js"></script>
+</body>
+</html>

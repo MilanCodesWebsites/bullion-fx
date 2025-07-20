@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BullionFX | Features</title>
+    <!-- Google Fonts - Inter for clean typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="features.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="stylesheet" href="loading.css">
+</head>
+<body>
+    <div class="loading-screen">
+        <img src="bull.gif" alt="Bull Running" class="bull-gif" />
+        <div class="progress-track">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+      </div>
+    <div class="main-app-container" id="main-app-container">
+    <nav class="navbar-container">
+        <a href="index.html" class="navbar-logo">bullionfx.</a>
+
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Desktop/Tablet View Navigation Links -->
+        <ul class="navbar-links-desktop" id="navbarLinksDesktop">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="features.html">Features</a></li>
+           
+        </ul>
+
+        <!-- Desktop/Tablet View Auth Buttons -->
+        <div class="navbar-auth-desktop" id="navbarAuthDesktop">
+            <a href="signup.html"><button class="signup-btn">Sign Up</button></a>
+            <a href="login.html"><button class="login-btn">Login</button></a>
+        </div>
+
+        <!-- Mobile Menu Content (hidden on desktop, shown on mobile via JS) -->
+        <div class="mobile-menu-content" id="mobileMenuContent">
+            <ul class="navbar-links-mobile">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Features</a></li>
+               
+            </ul>
+            <div class="navbar-auth-mobile">
+                <a href="signup.html"><button class="signup-btn">Sign Up</button></a>
+            <a href="login.html"><button class="login-btn">Login</button></a>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="tag">BullionFX Features</span>
+                    <h1>Manage your banking, investments, and trading</h1>
+                    <p>Empower your financial journey with BullionFX. Enjoy seamless access, top-tier security, and 24/7 expert support for all your trading and investment needs.</p>
+                    <a href="#" class="btn">
+                        Get Started <i data-lucide="arrow-right" style="margin-left: 10px; width: 20px; height: 20px;"></i>
+                    </a>
+                </div>
+                <div class="hero-image">
+                    <img src="imgs/cta-section-ii.svg" alt="BullionFX Dashboard UI">
+                </div>
+            </div>
+        </section>
+  
+        <!-- Forex Trading Section -->
+        <section class="feature-section">
+            <div class="container">
+                <h1 class="section-title">Forex Trading</h1>
+                <div class="feature-item-alt">
+                    <div class="feature-content-alt">
+                        <span class="tag">Global Markets</span>
+                        <h2>Access the World's Largest Financial Market</h2>
+                        <p>Dive into the dynamic world of currency exchange with BullionFX. Our platform offers competitive spreads and lightning-fast execution, ensuring you can capitalize on every market movement.</p>
+                        <ul class="feature-benefits-list">
+                            <li><i data-lucide="check-circle"></i>Trade Major, Minor, and Exotic Pairs</li>
+                            <li><i data-lucide="check-circle"></i>24/5 Market Access</li>
+                            <li><i data-lucide="check-circle"></i>Advanced Charting Tools</li>
+                            <li><i data-lucide="check-circle"></i>Real-time Price Feeds</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image-alt">
+                        <img src="imgs/trading.jpg" alt="Mobile Forex Trading App">
+                    </div>
+                </div>
+            </div>
+        </section>
+  
+        <!-- Cryptocurrency Trading Section -->
+        <section class="feature-section">
+            <div class="container">
+                <h1 class="section-title">Cryptocurrency Trading</h1>
+                <div class="feature-item-alt">
+                    <div class="feature-image-alt">
+                        <img src="imgs/crypto-ii.jpg" alt="Mobile Crypto Trading App">
+                    </div>
+                    <div class="feature-content-alt">
+                        <span class="tag">Digital Assets</span>
+                        <h2>Seamless In-App Crypto Trading</h2>
+                        <p>Explore the exciting realm of digital currencies with confidence. BullionFX provides a secure and intuitive platform for buying, selling, and managing your crypto portfolio with real-time insights.</p>
+                        <ul class="feature-benefits-list">
+                            <li><i data-lucide="check-circle"></i>24/7 Access to Your Crypto Wallet</li>
+                            <li><i data-lucide="check-circle"></i>Instant Access to 100+ Cryptocurrencies</li>
+                            <li><i data-lucide="check-circle"></i>Secure P2P Transactions</li>
+                            <li><i data-lucide="check-circle"></i>Effortless Deposit from Bank</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+  
+        <!-- Indices Trading Section -->
+        <section class="feature-section">
+            <div class="container">
+                <h1 class="section-title">Indices Trading</h1>
+                <div class="feature-item-alt">
+                    <div class="feature-content-alt">
+                        <span class="tag">Market Diversification</span>
+                        <h2>Gain Exposure to Global Economies</h2>
+                        <p>Diversify your investment portfolio by trading major stock indices from around the world. Track and trade the performance of entire sectors and economies with ease and precision.</p>
+                        <ul class="feature-benefits-list">
+                            <li><i data-lucide="check-circle"></i>Access to Leading Global Indices</li>
+                            <li><i data-lucide="check-circle"></i>Hedge Against Individual Stock Volatility</li>
+                            <li><i data-lucide="check-circle"></i>Simplified Market Exposure</li>
+                            <li><i data-lucide="check-circle"></i>Real-time Index Data</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image-alt">
+                        <img src="imgs/pexels-martabranco-1263324.jpg" alt="Mobile Indices Trading App">
+                    </div>
+                </div>
+            </div>
+        </section>
+  
+        <!-- Gold Trading Section -->
+        <section class="feature-section">
+            <div class="container">
+                <h1 class="section-title">Gold Trading</h1>
+                <div class="feature-item-alt">
+                    <div class="feature-image-alt">
+                        <img src="imgs/gold.jpg" alt="Mobile Gold Trading App">
+                    </div>
+                    <div class="feature-content-alt">
+                        <span class="tag">Precious Metals</span>
+                        <h2>Secure Your Wealth with Gold Trading</h2>
+                        <p>Hedge against inflation and market uncertainties by trading gold. BullionFX offers direct access to the precious metals market with transparent pricing and flexible trading options.</p>
+                        <ul class="feature-benefits-list">
+                            <li><i data-lucide="check-circle"></i>Spot Gold Trading</li>
+                            <li><i data-lucide="check-circle"></i>Competitive Spreads</li>
+                            <li><i data-lucide="check-circle"></i>Market Insights for Gold</li>
+                            <li><i data-lucide="check-circle"></i>Secure Asset Management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+  
+        <!-- Stock Trading Section -->
+        <section class="feature-section">
+            <div class="container">
+                <h1 class="section-title">Stock Trading</h1>
+                <div class="feature-item-alt">
+                    <div class="feature-content-alt">
+                        <span class="tag">Company Shares</span>
+                        <h2>Invest in Leading Companies Globally</h2>
+                        <p>Participate in the growth of your favorite companies by trading their shares on BullionFX. Our platform provides robust tools and research to help you make informed investment decisions.</p>
+                        <ul class="feature-benefits-list">
+                            <li><i data-lucide="check-circle"></i>Access to Major Stock Exchanges</li>
+                            <li><i data-lucide="check-circle"></i>Zero Commission Options</li>
+                            <li><i data-lucide="check-circle"></i>Comprehensive Company Data</li>
+                            <li><i data-lucide="check-circle"></i>Intuitive Mobile Trading Experience</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image-alt">
+                        <img src="imgs/about-img-ii.jpg" alt="Mobile Stock Trading App">
+                    </div>
+                </div>
+            </div>
+        </section>
+  
+        <!-- Rounds/Futures Trading Section -->
+        <section class="feature-section">
+            <div class="container">
+                <h1 class="section-title">Rounds/Futures Trading</h1>
+                <div class="feature-item-alt">
+                    <div class="feature-image-alt">
+                        <img src="imgs/benefits.avif" alt="Mobile Futures Trading App">
+                    </div>
+                    <div class="feature-content-alt">
+                        <span class="tag">Advanced Strategies</span>
+                        <h2>Explore Advanced Futures Trading</h2>
+                        <p>For experienced traders, BullionFX offers sophisticated tools for futures contracts. Speculate on future price movements of commodities, currencies, and indices with precision and control.</p>
+                        <ul class="feature-benefits-list">
+                            <li><i data-lucide="check-circle"></i>Diverse Futures Contracts</li>
+                            <li><i data-lucide="check-circle"></i>High Leverage Options</li>
+                            <li><i data-lucide="check-circle"></i>Risk Management Tools</li>
+                            <li><i data-lucide="check-circle"></i>Expert Analysis and Insights</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+  
+        <!-- Grid Features Section -->
+        <section class="grid-features-section">
+            <div class="container">
+                <h1 class="section-title">Tools to Transform Your Financial Future</h1>
+                <div class="grid-features-container">
+                    <div class="grid-feature-card">
+                        <div class="icon-wrapper">
+                            <i data-lucide="trending-up"></i>
+                        </div>
+                        <h3>Auto Investment Strategies</h3>
+                        <p>Automate your investments with personalized, auto-adjusting strategies designed to optimize your returns.</p>
+                    </div>
+                    <div class="grid-feature-card">
+                        <div class="icon-wrapper">
+                            <i data-lucide="pie-chart"></i>
+                        </div>
+                        <h3>Integrated Portfolio Tracker</h3>
+                        <p>View all your stocks, bonds, and crypto with real-time updates and comprehensive performance metrics.</p>
+                    </div>
+                    <div class="grid-feature-card">
+                        <div class="icon-wrapper">
+                            <i data-lucide="shield-check"></i>
+                        </div>
+                        <h3>Risk Assessment Tools</h3>
+                        <p>Understand your risk profile and get tailored portfolio suggestions to align with your financial goals.</p>
+                    </div>
+                    <div class="grid-feature-card">
+                        <div class="icon-wrapper">
+                            <i data-lucide="activity"></i>
+                        </div>
+                        <h3>Real-time Market Insights</h3>
+                        <p>Get instant access to live data, charts, and crypto changes for quick and informed trading decisions.</p>
+                    </div>
+                    <div class="grid-feature-card">
+                        <div class="icon-wrapper">
+                            <i data-lucide="wallet"></i>
+                        </div>
+                        <h3>Auto Savings Assistant</h3>
+                        <p>Link your bank accounts to round up purchases and invest the difference automatically.</p>
+                    </div>
+                    <div class="grid-feature-card">
+                        <div class="icon-wrapper">
+                            <i data-lucide="calendar-check"></i>
+                        </div>
+                        <h3>Retirement Planning Tools</h3>
+                        <p>Plan your retirement with ease, track progress, and receive financial insights to secure your future.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+
+
+
+
+    <footer class="bullionfx-footer">
+        <div class="footer-content-wrapper">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <i data-lucide="gold"></i>
+                    <span>BullionFX</span>
+                </div>
+                <p class="footer-description">
+                    Leading the future of digital assets by tokenizing physical gold, offering unparalleled stability and accessibility.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <i data-lucide="twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i data-lucide="instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i data-lucide="facebook"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-nav-group">
+                <h3 class="nav-heading">Quick Links</h3>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Benefits</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Upgrade</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav-group">
+                <h3 class="nav-heading">Legal</h3>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#" class="nav-link">Terms & Conditions</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Privacy Policy</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Cookie Policy</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            &copy; <span id="currentYear"></span> BullionFX. All rights reserved.
+        </div>
+    </footer>
+</div>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
+    <script src="loading-script.js"></script>
+</body>
+</html>
