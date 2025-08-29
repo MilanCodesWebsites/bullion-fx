@@ -1,0 +1,97 @@
+body{
+    margin: 0;
+    font-family: "Jost";
+    background-image: url(imgs/3379230.jpg);
+    background-size: cover;
+    background-size: auto;
+}
+.cont{
+        width: 60%;
+        margin: auto;
+        color: #006ECD;
+        padding: 50px;
+        font-size: 24px;
+        background-color: white;
+        margin-top: 50px;
+        text-align: center;
+}
+button, input{
+    font-family: "Jost";
+    font-family: 18px;
+}
+#confirmation{
+    color: #006ECD;
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 900;
+    font-size: 30px;
+}
+#address{
+    font-weight: bolder;
+    text-decoration: underline;
+    width: 70%;
+    padding: 10px;
+    border-radius: 12px;
+}
+#copyButton{
+    padding: 10px;
+    font-size: 24px;
+    border: 2px solid #006ECD;
+    background-color: white;
+    color: #006ECD;
+    border-radius: 12px;
+}
+#copyButton:hover{
+    background-color: #006ECD;
+    color: white;
+    cursor: pointer;
+}
+#confirmButton{
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    border: 2px solid #006ECD;
+    background-color: white;
+    color: #006ECD;
+}
+#confirmButton:hover{
+    background-color: #006ECD;
+    color: white;
+    cursor: pointer;
+    margin: auto;
+    text-align: center;
+}
+input[type="file"]::file-selector-button{
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    border: 2px solid #006ECD;
+    background-color: white;
+    color: #006ECD;
+    font-family: "Jost";
+}
+input[type="file"]::file-selector-button:hover{
+    background-color: #006ECD;
+    color: white;
+    cursor: pointer;
+    margin: auto;
+    font-family: "Jost";
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    #address{
+        width: 100%;
+        font-size: 15px;
+        font-weight: 500;
+    }
+    .cont{
+        padding: 15px;
+        width: 90%;
+        margin-top: 10px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markets - BullionFX</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="sss.css">
+    <link rel="shortcut icon" href="bull-svgrepo-com (1).svg" type="image/x-icon">
+    <link rel="stylesheet" href="translate.css">
+</head>
+
+<body>
+     <div class="translate-cont">
+        <button class="toggle-button" onclick="toggleDiv()">Translate</button>
+    </div>
+            <div class="gtranslate_wrapper toggle-div" id="myDiv"></div>
+<script>window.gtranslateSettings = {"default_language":"en","wrapper_selector":".gtranslate_wrapper","switcher_vertical_position":"top","float_switcher_open_direction":"bottom"}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+    
+    <script>
+        function toggleDiv() {
+            const div = document.getElementById('myDiv');
+            div.classList.toggle('show');
+        }
+    </script>
+    <div class="dashboard">
+        <!-- Sidebar (desktop only) -->
+        <aside class="sidebar">
+            <div class="profile">
+                <label for="avatar-upload" class="profile-avatar circle">
+                    <img id="avatar-image" src="https://img.icons8.com/?size=100&id=2yC9SZKcXDdX&format=png&color=000000" alt="Avatar">
+                    <span id="avatar-text"></span>
+                    <input type="file" id="avatar-upload" accept="image/*">
+                </label>
+                <h2><span class="account-name-class"></span></h2>
+                <div class="balance-pill">
+                    <span id="total-balance">$0.00</span>
+                </div>
+            </div>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item">
+                    <i data-lucide="home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="deposit.html" class="nav-item">
+                    <i data-lucide="wallet"></i>
+                    <span>Deposit</span>
+                </a>
+                <a href="crypto-withdrawal.html" class="nav-item">
+                    <i data-lucide="credit-card"></i>
+                    <span>Withdraw</span>
+                </a>
+                <a href="chart.html" class="nav-item active">
+                    <i data-lucide="bar-chart-2"></i>
+                    <span>Chart</span>
+                </a>
+                <a href="logout.html" class="nav-item logout">
+                    <i data-lucide="log-out"></i>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1 style="text-align: center;">Top Gainers</h1>
+            <br>
+            <div>
+                <script src="https://widgets.coingecko.com/gecko-coin-list-widget.js"></script>
+<gecko-coin-list-widget locale="en" dark-mode="true" outlined="true" coin-ids="pi-network,berachain-bera,plume,bitcoin,hyperliquid,sui,ripple,solana,tether,ethereum,binancecoin,tether-gold" initial-currency="usd"></gecko-coin-list-widget>
+            </div>
+        </main>
+
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav mobile-only">
+            <a href="chart.html" class="nav-item active">
+                <i data-lucide="bar-chart-2"></i>
+                <span>Markets</span>
+            </a>
+            <a href="deposit.html" class="nav-item">
+                <i data-lucide="wallet"></i>
+                <span>Deposit</span>
+            </a>
+            <a href="dashboard.html" class="nav-item">
+                <i data-lucide="home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="crypto-withdrawal.html" class="nav-item">
+                <i data-lucide="credit-card"></i>
+                <span>Withdraw</span>
+            </a>
+            <a href="logout.html" class="nav-item">
+                <i data-lucide="log-out"></i>
+                <span>Logout</span>
+            </a>
+        </nav>
+    </div>
+
+
+
+   
+
+
+
+
+
+    <script src="https://s3.tradingview.com/tv.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Toggle balance visibility
+        const toggleButton = document.querySelector('.toggle-balance');
+        const balanceAmount = document.querySelector('.balance-amount');
+        let isBalanceHidden = false;
+
+        toggleButton.addEventListener('click', () => {
+            isBalanceHidden = !isBalanceHidden;
+            balanceAmount.style.filter = isBalanceHidden ? 'blur(8px)' : 'none';
+            toggleButton.querySelector('.eye-icon').setAttribute('data-lucide', isBalanceHidden ? 'eye-off' : 'eye');
+            lucide.createIcons();
+        });
+
+        // Avatar upload functionality
+        function setupAvatarUpload(inputId, imageId, textId) {
+            const input = document.getElementById(inputId);
+            const img = document.getElementById(imageId);
+            const text = document.getElementById(textId);
+
+            input.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const base64Image = e.target.result;
+                        img.src = base64Image;
+                        img.style.display = 'block';
+                        text.style.display = 'none';
+                        
+                        // Store the base64 image in localStorage for persistence
+                        localStorage.setItem('userAvatar', base64Image);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        setupAvatarUpload('avatar-upload', 'avatar-image', 'avatar-text');
+        setupAvatarUpload('mobile-avatar-upload', 'mobile-avatar-image', 'mobile-avatar-text');
+
+        // Load avatar from localStorage on page load
+        window.addEventListener('load', function() {
+            const savedAvatar = localStorage.getItem('userAvatar');
+            if (savedAvatar) {
+                document.getElementById('avatar-image').src = savedAvatar;
+                document.getElementById('avatar-image').style.display = 'block';
+                document.getElementById('avatar-text').style.display = 'none';
+                document.getElementById('mobile-avatar-image').src = savedAvatar;
+                document.getElementById('mobile-avatar-image').style.display = 'block';
+                document.getElementById('mobile-avatar-text').style.display = 'none';
+            }
+        });
+    </script>
+   <script>
+      // Add this script for profile image functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const profileImageContainer = document.getElementById(
+          "profileImageContainer"
+        );
+        const profileImageInput = document.getElementById("profileImageInput");
+        const avatar = document.getElementById("avatar");
+
+        profileImageInput &&
+          profileImageInput.addEventListener("click", function () {
+            profileImageInput.click();
+          });
+
+        profileImageInput &&
+          profileImageInput.addEventListener("change", function (event) {
+            const file = event.target.files[0];
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = function (e) {
+                profileImageContainer.innerHTML = `<img src="${e.target.result}" alt="Profile" class="profile-image">`;
+                avatar.innerHTML = `<img src="${e.target.result}" alt="Profile" class="profile-image">`;
+              };
+              reader.readAsDataURL(file);
+
+              // Upload the profile picture
+              const user = localStorage.getItem("user");
+              const { id } = JSON.parse(user);
+              if (id) {
+                const formData = new FormData();
+                formData.append("file", file);
+
+                fetch(
+                  `https://bullion-fx-server.onrender.com/api/v1/user/${id}/upload-profile-picture`,
+                  {
+                    method: "POST",
+                    body: formData,
+                  }
+                )
+                  .then((response) => response.json())
+                  .then((data) => {
+                    if (data.success) {
+                      console.log("Profile picture updated successfully");
+                    } else {
+                      console.error(
+                        "Error updating profile picture:",
+                        data.message
+                      );
+                    }
+                  })
+                  .catch((error) =>
+                    console.error("Error uploading profile picture:", error)
+                  );
+              }
+            }
+          });
+
+        // Fetch user data and populate balance records
+        try {
+          console.log(345433);
+          const user = localStorage.getItem("user");
+          console.log(3122423432423423, user);
+          const { id } = JSON.parse(user);
+          if (id) {
+            const run = async () => {
+              const res = await fetch(
+                `https://bullion-fx-server.onrender.com/api/v1/user/${id}`,
+                {
+                  method: "GET",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
+              );
+              const data = await res.json();
+              console.log(
+                "+)+_)+_)_+)+_",
+                data?.data,
+                data.data.btc_balance +
+                  data.data.eth_balance +
+                  data.data.usdt_balance +
+                  data.data.xrp_balance
+              );
+              if (data.success) {
+                document
+                  .querySelectorAll(".account-name-class")
+                  .forEach((element) => {
+                    element.textContent = data.data.username;
+                  });
+                const btc = Number(data.data.btc_balance) || 0;
+                const eth = Number(data.data.eth_balance) || 0;
+                const usdt = Number(data.data.usdt_balance) || 0;
+                const xrp = Number(data.data.xrp_balance) || 0;
+                const balance = Number(data.data.balance) || 0;
+
+                // Calculate total balance
+                const totalBalance = btc + eth + usdt + xrp + balance;
+
+                // Format total balance as currency
+                const formattedBalance = `$${totalBalance.toLocaleString()}`;
+
+                // Update all elements with the same ID
+                document.querySelectorAll("#total-balance").forEach((el) => {
+                  el.textContent = formattedBalance;
+                });
+
+                document.getElementById(
+                  "btc-balance"
+                ).textContent = `$${data.data.btc_balance}`;
+                document.getElementById(
+                  "eth-balance"
+                ).textContent = `$${data.data.eth_balance}`;
+                document.getElementById(
+                  "usdt-balance"
+                ).textContent = `$${data.data.usdt_balance}`;
+                document.getElementById(
+                  "sol-balance"
+                ).textContent = `$${data.data.xrp_balance}`;
+
+                if (data.data.profilePicture) {
+                  if (profileImageContainer) {
+                    profileImageContainer.innerHTML = `<img src="${data.data.profilePicture}" alt="Profile" class="profile-image">`;
+                  }
+                  if (avatar) {
+                    avatar.innerHTML = `<img src="${data.data.profilePicture}" alt="Profile" class="profile-image">`;
+                  }
+
+                  // Create a Blob from the profile picture URL and set it as the input file
+                  const profileImageInput =
+                    document.querySelector("#profileImageInput"); // Ensure correct selector
+
+                  if (!profileImageInput) {
+                    console.error("Profile image input not found!");
+                    return;
+                  }
+
+                  fetch(data.data.profilePicture)
+                    .then((res) => {
+                      if (!res.ok) {
+                        throw new Error(
+                          `Image fetch failed: ${res.status} ${res.statusText}`
+                        );
+                      }
+                      return res.blob();
+                    })
+                    .then((blob) => {
+                      const file = new File([blob], "profile.jpg", {
+                        type: blob.type,
+                      });
+                      const dataTransfer = new DataTransfer();
+                      dataTransfer.items.add(file);
+                      profileImageInput.files = dataTransfer.files;
+                    })
+                    .catch((error) =>
+                      console.error("Error fetching profile picture:", error)
+                    );
+                } else {
+                  const initial = data.data.username.charAt(0).toUpperCase();
+                  profileImageContainer.innerHTML = `<div class="avatar-placeholder">${initial}</div>`;
+                  avatar.innerHTML = `<div class="avatar-placeholder">${initial}</div>`;
+                }
+              }
+            };
+
+            run();
+          }
+        } catch (error) {
+          console.error("Error fetching", error.message);
+        }
+      });
+    </script>
+   
+    
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'cbb58c4f3a09e07e5fbd575472b806356a91639c';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<link rel="stylesheet" href="translate.css">
+<noscript> Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Withdrawal - BullionFX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(-45deg, #000000, #001f3f, #0066cc, #000000);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #ffffff;
+        }
+
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem top 50%;
+            background-size: 0.65rem auto;
+            padding-right: 2rem !important;
+        }
+
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 380px;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0066cc;
+        }
+        h1 {
+            text-align: center;
+            color: #0066cc;
+            margin-bottom: 1.5rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 1rem;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        input, select {
+            margin-top: 0.5rem;
+            padding: 0.75rem;
+            background-color: #1a1a1a;
+            border: 1px solid #333333;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #ffffff;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+        }
+        button {
+            margin-top: 1.5rem;
+            padding: 0.75rem;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #004c99;
+        }
+        .input-icon {
+            position: relative;
+        }
+        .input-icon i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666666;
+        }
+        .input-icon input, .input-icon select {
+            padding-left: 35px;
+        }
+        #fee-display, #address-display {
+            margin-top: 0.5rem;
+            font-size: 14px;
+            color: #cccccc;
+        }
+        .hidden {
+            display: none;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+        .button-group button {
+            width: 48%;
+        }
+        
+        /* Enhanced address container styling */
+        .address-container {
+            position: relative;
+            margin-top: 0.5rem;
+            background-color: rgba(0, 102, 204, 0.1);
+            border: 1px solid rgba(0, 102, 204, 0.3);
+            border-radius: 4px;
+            padding: 12px 40px 12px 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .address-container:hover {
+            background-color: rgba(0, 102, 204, 0.15);
+            border-color: rgba(0, 102, 204, 0.5);
+            box-shadow: 0 0 10px rgba(0, 102, 204, 0.2);
+        }
+        
+        #address {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #e6e6e6;
+            word-break: break-all;
+        }
+        
+        .copy-button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #0066cc;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 5px;
+            margin: 0;
+            transition: all 0.2s ease;
+        }
+        
+        .copy-button:hover {
+            color: #4d94ff;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .copy-tooltip {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .copy-tooltip.show {
+            opacity: 1;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .modal {
+            background-color: #001f3f;
+            border: 2px solid #0066cc;
+            border-radius: 8px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            animation: modalFadeIn 0.3s ease-out;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: #0066cc;
+        }
+        
+        .modal-header i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        
+        .modal-header h2 {
+            margin: 0;
+            font-size: 22px;
+        }
+        
+        .modal-content {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            color: #e6e6e6;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .modal-buttons button {
+            width: 48%;
+            margin-top: 0;
+        }
+        
+        .btn-cancel {
+            background-color: #333333;
+        }
+        
+        .btn-cancel:hover {
+            background-color: #444444;
+        }
+    </style>
+</head>
+<body>
+   <div class="translate-cont">
+        <button class="toggle-button" onclick="toggleDiv()">Translate</button>
+    </div>
+            <div class="gtranslate_wrapper toggle-div" id="myDiv"></div>
+<script>window.gtranslateSettings = {"default_language":"en","wrapper_selector":".gtranslate_wrapper","switcher_vertical_position":"top","float_switcher_open_direction":"bottom"}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+    
+    <script>
+        function toggleDiv() {
+            const div = document.getElementById('myDiv');
+            div.classList.toggle('show');
+        }
+    </script>
+    <!-- Modal -->
+    <div class="modal-overlay" id="withdrawalModal">
+        <div class="modal">
+            <div class="modal-header">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h2>Withdrawal Notice</h2>
+            </div>
+            <div class="modal-content">
+                <p>Your withdrawal fees must be paid before your withdrawal request can be processed. If you do not pay the withdrawal fees, your request will be cancelled.</p>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn-cancel" onclick="window.location.href='dashboard.html'">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+                <button onclick="closeModal()">
+                    <i class="fas fa-check"></i> I Understand
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <div class="logo-container">
+            <i class="fas fa-coins fa-2x" style="color: #0066cc; margin-right: 10px;"></i>
+            <div class="logo">BullionFX</div>
+        </div>
+        <h1>Crypto Withdrawal</h1>
+        <form action="confirmation.html" method="POST">
+            <label for="amount">
+                <i class="fas fa-dollar-sign"></i> Withdrawal Amount:
+            </label>
+            <div class="input-icon">
+                <i class="fas fa-coins"></i>
+                <input type="number" id="amount" name="amount" required min="0" step="0.01" placeholder="Enter amount" oninput="calculateFee()">
+            </div>
+            <div id="fee-display"></div>
+
+            <label for="fee-currency">
+                <i class="fas fa-exchange-alt"></i> Fee Payment Currency:
+            </label>
+            <div class="input-icon">
+                <i class="fas fa-wallet"></i>
+                <select id="fee-currency" name="fee-currency" required onchange="showAddress()">
+                    <option value="">Select a currency</option>
+                    <option value="BTC">Bitcoin (BTC)</option>
+                    <option value="ETH">Ethereum (ETH)</option>
+                    <option value="USDT">Tether (USDT)</option>
+                </select>
+            </div>
+            <div id="address-display" class="hidden">
+                <label><i class="fas fa-key"></i> Send fee payment to this address:</label>
+                <div class="address-container">
+                    <span id="address"></span>
+                    <button type="button" class="copy-button" onclick="copyAddress()" aria-label="Copy address">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                    <span class="copy-tooltip">Copied!</span>
+                </div>
+            </div>
+
+            <label for="proof">
+                <i class="fas fa-file-upload"></i> Upload Proof of Payment:
+            </label>
+            <input type="file" id="proof" name="proof" required accept="image/*,.pdf">
+
+            <label for="withdrawal-currency">
+                <i class="fas fa-exchange-alt"></i> Withdrawal Currency:
+            </label>
+            <div class="input-icon">
+                <i class="fas fa-wallet"></i>
+                <select id="withdrawal-currency" name="withdrawal-currency" required onchange="updateWithdrawalCurrency()">
+                    <option value="">Select withdrawal currency</option>
+                    <option value="BTC">Bitcoin (BTC)</option>
+                    <option value="ETH">Ethereum (ETH)</option>
+                    <option value="USDT">Tether (USDT)</option>
+                </select>
+            </div>
+
+            <label for="withdrawal-address">
+                <i class="fas fa-key"></i> Withdrawal Address (<span id="selected-withdrawal-currency">Not selected</span>):
+            </label>
+            <div class="input-icon">
+                <i class="fas fa-wallet"></i>
+                <input type="text" id="withdrawal-address" name="withdrawal-address" required placeholder="Enter your withdrawal address">
+            </div>
+            <input type="hidden" name="" value="confirmation.html">
+            <button type="submit">
+                <i class="fas fa-paper-plane"></i> Submit Withdrawal Request
+            </button>
+        </form>
+        <div class="button-group">
+            <button onclick="window.location.href='bank-withdrawal.html'">
+                <i class="fas fa-university"></i> Bank Withdrawal
+            </button>
+            <button onclick="window.location.href='cash-withdrawal.html'">
+                <i class="fas fa-money-bill-wave"></i> Cash Withdrawal
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const addresses = {
+            BTC: "1KVBny3MwQjFwPKmsRnjbpcdDq93hXfGgg",
+            ETH: "0x5c44e4f4f9251f43d647f5c8a7b799bb480bd674",
+            USDT: "TGQFQQQsKPeMW98WGA9rU4go5aWBeGt3X2"
+        };
+
+        function calculateFee() {
+            const amount = document.getElementById('amount').value;
+            const fee = amount * 0.1;
+            document.getElementById('fee-display').innerHTML = `<i class="fas fa-info-circle"></i> Withdrawal Fee: $${fee.toFixed(2)}`;
+        }
+
+        function showAddress() {
+            const currency = document.getElementById('fee-currency').value;
+            const addressDisplay = document.getElementById('address-display');
+            if (currency) {
+                document.getElementById('address').textContent = addresses[currency];
+                addressDisplay.classList.remove('hidden');
+            } else {
+                addressDisplay.classList.add('hidden');
+            }
+        }
+
+        function copyAddress() {
+            const address = document.getElementById('address').textContent;
+            const tooltip = document.querySelector('.copy-tooltip');
+            
+            // Use modern clipboard API
+            navigator.clipboard.writeText(address)
+                .then(() => {
+                    // Show success state
+                    const copyButton = document.querySelector('.copy-button');
+                    copyButton.innerHTML = '<i class="fas fa-check"></i>';
+                    copyButton.style.color = '#10b981'; // Success green color
+                    
+                    // Show tooltip
+                    tooltip.classList.add('show');
+                    
+                    // Reset after 2 seconds
+                    setTimeout(() => {
+                        copyButton.innerHTML = '<i class="fas fa-copy"></i>';
+                        copyButton.style.color = '';
+                        tooltip.classList.remove('show');
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Failed to copy: ', err);
+                    alert('Failed to copy address. Please try again or copy manually.');
+                });
+        }
+
+        function updateWithdrawalCurrency() {
+            const currency = document.getElementById('withdrawal-currency').value;
+            document.getElementById('selected-withdrawal-currency').textContent = currency || 'Not selected';
+        }
+
+        // Modal functions
+        function closeModal() {
+            document.getElementById('withdrawalModal').style.display = 'none';
+        }
+
+        // Show modal on page load
+        window.onload = function() {
+            document.getElementById('withdrawalModal').style.display = 'flex';
+        };
+    </script>
+</body>
+</html>

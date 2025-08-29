@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BullionFX</title>
+    <link rel="stylesheet" href="translate.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #000000;
+        color: #ffffff;
+      }
+      .profile-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem 1rem;
+        border-bottom: 1px solid #333333;
+      }
+
+      .profile-image-container {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        cursor: pointer;
+        margin-bottom: 0.75rem;
+        background-color: #333333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #ffd700;
+      }
+
+      .profile-image-placeholder {
+        color: #ffffff;
+        font-size: 1.75rem;
+      }
+
+      .profile-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .profile-name {
+        font-size: 1rem;
+        color: #ffffff;
+        font-weight: 600;
+      }
+
+      /* Update existing sidebar styles */
+      .sidebar {
+        padding-top: 0;
+      }
+
+      .sidebar-item {
+        padding: 0.875rem 1rem;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background-color: #111827;
+        border-bottom: 1px solid #333333;
+      }
+
+      .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .logo {
+        width: 2rem;
+        height: 2rem;
+        background-color: #ffd700;
+        border-radius: 50%;
+      }
+
+      .hamburger {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        width: 30px;
+        height: 20px;
+        position: relative;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #ffffff;
+        position: absolute;
+        left: 0;
+        transition: all 0.3s ease;
+      }
+
+      .hamburger span:nth-child(1) {
+        top: 0;
+      }
+      .hamburger span:nth-child(2) {
+        top: 9px;
+      }
+      .hamburger span:nth-child(3) {
+        top: 18px;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      .search-container {
+        position: relative;
+        max-width: 400px;
+        width: 100%;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 0.5rem 1rem 0.5rem 2.5rem;
+        border-radius: 9999px;
+        border: none;
+        background-color: #333333;
+        color: #ffffff;
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #666666;
+      }
+
+      .user-menu {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .uppercase {
+        text-decoration: uppercase;
+      }
+      .avatar {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: #4a4a4a;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        background-color: #111827;
+        transition: left 0.3s ease-in-out;
+        z-index: 1000;
+        overflow-y: auto;
+      }
+
+      .sidebar.open {
+        left: 0;
+      }
+
+      .sidebar-item {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        color: #ffffff;
+        text-decoration: none;
+        transition: background-color 0.2s;
+      }
+
+      .sidebar-item:hover {
+        background-color: #333333;
+      }
+
+      .sidebar-item i {
+        margin-right: 0.5rem;
+        width: 20px;
+        text-align: center;
+      }
+
+      .logout {
+        color: #ff4d4d;
+      }
+
+      main {
+        padding: 2rem;
+        transition: margin-left 0.3s ease-in-out;
+      }
+
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+      }
+
+      @media (max-width: 768px) {
+        .hamburger {
+          display: block;
+        }
+        .search-container {
+          display: none;
+        }
+        .sidebar {
+          left: -100%;
+          width: 50%;
+        }
+        .sidebar.open {
+          left: 0;
+        }
+        main {
+          margin-left: 0;
+        }
+        main.sidebar-open {
+          margin-left: 50%;
+        }
+        .overlay.active {
+          display: block;
+        }
+      }
+
+      .table-container {
+        width: 100%;
+        overflow-x: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #2a2a2a;
+      }
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #444;
+      }
+      th {
+        background-color: #333;
+        font-weight: bold;
+      }
+      tr:hover {
+        background-color: #3a3a3a;
+      }
+      .currency-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 8px;
+        font-weight: bold;
+      }
+      .bitcoin {
+        background-color: #f7931a;
+        color: white;
+      }
+      .ethereum {
+        background-color: #627eea;
+        color: white;
+      }
+      .bnb {
+        background-color: #f3ba2f;
+        color: black;
+      }
+      .buy,
+      .sell {
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+      .buy {
+        background-color: #dc3545;
+        color: white;
+      }
+      .sell {
+        background-color: #28a745;
+        color: white;
+      }
+      .address {
+        font-family: monospace;
+        color: #888;
+      }
+      @media (max-width: 768px) {
+        .mobile-hide {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+      <div class="translate-cont">
+        <button class="toggle-button" onclick="toggleDiv()">Translate</button>
+    </div>
+            <div class="gtranslate_wrapper toggle-div" id="myDiv"></div>
+<script>window.gtranslateSettings = {"default_language":"en","wrapper_selector":".gtranslate_wrapper","switcher_vertical_position":"top","float_switcher_open_direction":"bottom"}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+    
+    <script>
+        function toggleDiv() {
+            const div = document.getElementById('myDiv');
+            div.classList.toggle('show');
+        }
+    </script>
+    <nav>
+      <div class="nav-left">
+        <button id="hamburger" class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="logo"></div>
+        <h1>Recent Transactions</h1>
+      </div>
+      <div class="search-container">
+        <input type="text" placeholder="Search" class="search-input" />
+        <i class="fas fa-search search-icon"></i>
+      </div>
+      <div class="user-menu">
+        <i class="fas fa-bell"></i>
+        <div class="avatar" id="avatar"></div>
+      </div>
+    </nav>
+
+    <div id="sidebar" class="sidebar">
+      <div class="profile-section">
+        <div class="profile-image-container" id="profileImageContainer">
+          <div class="profile-image-placeholder">
+            <i class="fas fa-user"></i>
+          </div>
+        </div>
+        <input
+          type="file"
+          id="profileImageInput"
+          accept="image/*"
+          style="display: none"
+        />
+        <span class="profile-name profile-name-class">John Doe</span>
+      </div>
+      <a href="index.html" class="sidebar-item"
+        ><i class="fas fa-home"></i> Dashboard</a
+      >
+      <a href="transactions.html" class="sidebar-item"
+        ><i class="fa-solid fa-money-bill-trend-up"></i> Transactions</a
+      >
+      <a href="chart.html" class="sidebar-item"
+        ><i class="fas fa-chart-line"></i> Chart</a
+      >
+      <a href="deposit.html" class="sidebar-item"
+        ><i class="fas fa-wallet"></i> Deposit</a
+      >
+      <a href="crypto-withdrawal.html" class="sidebar-item"
+        ><i class="fa-solid fa-hand-holding-dollar"></i> Withdraw</a
+      >
+      <a href="logout.html" class="sidebar-item logout"
+        ><i class="fas fa-sign-out-alt"></i> Log out</a
+      >
+    </div>
+
+    <main>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th class="mobile-hide">From</th>
+              <th class="mobile-hide">To</th>
+              <th>Currency</th>
+              <th>Amount</th>
+              <th>Buy/Sell</th>
+              <th class="mobile-hide">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr>
+              <td class="mobile-hide address">0xce4...QnoY</td>
+              <td class="mobile-hide address">0xr3...rq3Z</td>
+              <td><span class="currency-icon bitcoin">₿</span>Bitcoin</td>
+              <td>19 BTC<br />$399,000</td>
+              <td><span class="buy">Buy</span></td>
+              <td class="mobile-hide">12/08/2022</td>
+            </tr>
+            <tr>
+              <td class="mobile-hide address">0xce4...QnoY</td>
+              <td class="mobile-hide address">0x4d...3daw</td>
+              <td><span class="currency-icon bitcoin">₿</span>Bitcoin</td>
+              <td>17.83 BTC<br />$351,000</td>
+              <td><span class="sell">Sell</span></td>
+              <td class="mobile-hide">12/08/2022</td>
+            </tr>
+            <tr>
+              <td class="mobile-hide address">0x3r...4xu3</td>
+              <td class="mobile-hide address">0xw3...c4ea</td>
+              <td><span class="currency-icon ethereum">Ξ</span>Ethereum</td>
+              <td>88 ETH<br />$299,467</td>
+              <td><span class="buy">Buy</span></td>
+              <td class="mobile-hide">12/08/2022</td>
+            </tr>
+            <tr>
+              <td class="mobile-hide address">0xZo5...C6hZ</td>
+              <td class="mobile-hide address">0xxe...qQr4</td>
+              <td><span class="currency-icon bnb">B</span>BNB</td>
+              <td>310 BNB<br />$248,849</td>
+              <td><span class="buy">Buy</span></td>
+              <td class="mobile-hide">12/08/2022</td>
+            </tr>
+            <tr>
+              <td class="mobile-hide address">0x5XJ...53ea</td>
+              <td class="mobile-hide address">0xzR...7eav</td>
+              <td><span class="currency-icon ethereum">Ξ</span>Ethereum</td>
+              <td>61 ETH<br />$170,983</td>
+              <td><span class="sell">Sell</span></td>
+              <td class="mobile-hide">12/08/2022</td>
+            </tr>
+            <tr>
+              <td class="mobile-hide address">0xAb7...P9nM</td>
+              <td class="mobile-hide address">0xKl2...8qWx</td>
+              <td><span class="currency-icon bitcoin">₿</span>Bitcoin</td>
+              <td>15.5 BTC<br />$343,431</td>
+              <td><span class="buy">Buy</span></td>
+              <td class="mobile-hide">12/08/2022</td>
+            </tr>
+            <tr>
+              <td class="mobile-hide address">0xYh4...L7vR</td>
+              <td class="mobile-hide address">0xJm9...2pTz</td>
+              <td><span class="currency-icon ethereum">Ξ</span>Ethereum</td>
+              <td>45 ETH<br />$140,655</td>
+              <td><span class="sell">Sell</span></td>
+              <td class="mobile-hide">12/08/2022</td>
+            </tr>
+            <tr>
+              <td class="mobile-hide address">0x5XJ...53ea</td>
+              <td class="mobile-hide address">0xzR...7eav</td>
+              <td><span class="currency-icon ethereum">Ξ</span>Ethereum</td>
+              <td>61 ETH<br />$170,983</td>
+              <td><span class="sell">Sell</span></td>
+              <td class="mobile-hide">12/08/2022</td>
+            </tr>
+            <tr>
+              <td class="mobile-hide address">0xAb7...P9nM</td>
+              <td class="mobile-hide address">0xKl2...8qWx</td>
+              <td><span class="currency-icon bitcoin">₿</span>Bitcoin</td>
+              <td>15.5 BTC<br />$343,431</td>
+              <td><span class="buy">Buy</span></td>
+              <td class="mobile-hide">12/08/2022</td>
+            </tr>
+            <tr>
+              <td class="mobile-hide address">0xYh4...L7vR</td>
+              <td class="mobile-hide address">0xJm9...2pTz</td>
+              <td><span class="currency-icon ethereum">Ξ</span>Ethereum</td>
+              <td>45 ETH<br />$140,655</td>
+              <td><span class="sell">Sell</span></td>
+              <td class="mobile-hide">12/08/2022</td>
+            </tr>
+            <tr>
+              <td class="mobile-hide address">0x5XJ...53ea</td>
+              <td class="mobile-hide address">0xzR...7eav</td>
+              <td><span class="currency-icon ethereum">Ξ</span>Ethereum</td>
+              <td>61 ETH<br />$170,983</td>
+              <td><span class="sell">Sell</span></td>
+              <td class="mobile-hide">12/08/2022</td>
+            </tr>
+            <tr>
+              <td class="mobile-hide address">0xAb7...P9nM</td>
+              <td class="mobile-hide address">0xKl2...8qWx</td>
+              <td><span class="currency-icon bitcoin">₿</span>Bitcoin</td>
+              <td>15.5 BTC<br />$343,431</td>
+              <td><span class="buy">Buy</span></td>
+              <td class="mobile-hide">12/08/2022</td>
+            </tr>
+            <tr>
+              <td class="mobile-hide address">0xYh4...L7vR</td>
+              <td class="mobile-hide address">0xJm9...2pTz</td>
+              <td><span class="currency-icon ethereum">Ξ</span>Ethereum</td>
+              <td>45 ETH<br />$140,655</td>
+              <td><span class="sell">Sell</span></td>
+              <td class="mobile-hide">12/08/2022</td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <div id="overlay" class="overlay"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburger = document.getElementById("hamburger");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+        const main = document.querySelector("main");
+
+        // Toggle sidebar
+        hamburger.addEventListener("click", () => {
+          hamburger.classList.toggle("active");
+          sidebar.classList.toggle("open");
+          overlay.classList.toggle("active");
+          main.classList.toggle("sidebar-open");
+        });
+
+        // Close sidebar when clicking outside
+        overlay.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          sidebar.classList.remove("open");
+          overlay.classList.remove("active");
+          main.classList.remove("sidebar-open");
+        });
+
+        // Close sidebar when clicking a link (for mobile view)
+        const sidebarLinks = document.querySelectorAll(".sidebar-item");
+        sidebarLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            if (window.innerWidth <= 768) {
+              hamburger.classList.remove("active");
+              sidebar.classList.remove("open");
+              overlay.classList.remove("active");
+              main.classList.remove("sidebar-open");
+            }
+          });
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // ... existing script ...
+
+        // Add this code for profile image functionality
+        const profileImageContainer = document.getElementById(
+          "profileImageContainer"
+        );
+        const profileImageInput = document.getElementById("profileImageInput");
+        const avatar = document.getElementById("avatar");
+
+        profileImageContainer.addEventListener("click", () => {
+          profileImageInput.click();
+        });
+
+        profileImageInput.addEventListener("change", (event) => {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              profileImageContainer.innerHTML = `<img src="${e.target.result}" alt="Profile" class="profile-image">`;
+              avatar.innerHTML = `<img src="${e.target.result}" alt="Profile" class="profile-image">`;
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+
+        // Fetch user data and update account name
+        try {
+          const user = localStorage.getItem("user");
+          const { id } = JSON.parse(user);
+          if (id) {
+            const run = async () => {
+              const res = await fetch(
+                `https://bullion-fx-server.onrender.com/api/v1/user/${id}`,
+                {
+                  method: "GET",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
+              );
+              const data = await res.json();
+              if (data.success) {
+                document
+                  .querySelectorAll(".profile-name-class")
+                  .forEach((element) => {
+                    element.textContent = data.data.username;
+                  });
+                if (data.data.profilePicture) {
+                  profileImageContainer.innerHTML = `<img src="${data.data.profilePicture}" alt="Profile" class="profile-image">`;
+                  avatar.innerHTML = `<img src="${data.data.profilePicture}" alt="Profile" class="profile-image">`;
+
+                  // Create a Blob from the profile picture URL and set it as the input file
+                  fetch(data.data.profilePicture)
+                    .then((res) => res.blob())
+                    .then((blob) => {
+                      const file = new File([blob], "profile.jpg", {
+                        type: blob.type,
+                      });
+                      const dataTransfer = new DataTransfer();
+                      dataTransfer.items.add(file);
+                      profileImageInput.files = dataTransfer.files;
+                    });
+                } else {
+                  const initial = data.data.username.charAt(0).toUpperCase();
+                  profileImageContainer.innerHTML = `<div class="avatar-placeholder">${initial}</div>`;
+                  avatar.innerHTML = `<div class="avatar-placeholder">${initial}</div>`;
+                }
+              }
+            };
+            run();
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error.message);
+        }
+
+        // Fetch transactions and populate the table
+        const fetchTransactions = async () => {
+          try {
+            const user = localStorage.getItem("user");
+            const { id } = JSON.parse(user);
+            const response = await fetch(
+              `https://bullion-fx-server.onrender.com/api/v1/user/transaction/${id}`,
+              {
+                method: "GET",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              }
+            );
+            const data = await response.json();
+            if (data.success) {
+              const transactions = data.data;
+              const tbody = document.querySelector("tbody");
+              tbody.innerHTML = ""; // Clear existing rows
+              transactions.forEach((transaction) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                  <td class="mobile-hide address">${transaction.from}</td>
+                  <td class="mobile-hide address">${transaction.to}</td>
+                  <td class="uppercase"><span class="currency-icon ${
+                    transaction.currency.toLowerCase() === "btc"
+                      ? "bitcoin"
+                      : transaction.currency.toLowerCase() === "eth"
+                      ? "ethereum"
+                      : transaction.currency.toLowerCase() === "xrp"
+                      ? "xrp"
+                      : "usdt"
+                  }">${
+                  transaction.currency.toLowerCase() === "btc"
+                    ? "₿"
+                    : transaction.currency.toLowerCase() === "eth"
+                    ? "Ξ"
+                    : transaction.currency.toLowerCase() === "xrp"
+                    ? "x"
+                    : "u"
+                }</span>${transaction.currency.toUpperCase()}</td>
+                  <td>$${transaction.amount}</td>
+                  <td><span class="${transaction.type.toLowerCase()}">${
+                  transaction.type
+                }</span></td>
+                  <td class="mobile-hide">${new Date(
+                    transaction.createdAt
+                  ).toLocaleDateString()}</td>
+                `;
+                tbody.appendChild(row);
+              });
+            }
+          } catch (error) {
+            console.error("Error fetching transactions:", error.message);
+          }
+        };
+
+        fetchTransactions();
+      });
+    </script>
+  </body>
+</html>

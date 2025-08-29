@@ -1,0 +1,50 @@
+body{
+    margin: 0;
+    font-family: "Jost", sans-serif;
+    background-image: url(imgs/3379230.jpg);
+    background-size: auto;
+    background-size: cover;
+}
+form{
+    width: 60%;
+    margin: auto;
+    color: #006ECD;
+    padding: 50px;
+    font-size: 24px;
+    background-color: white;
+    margin-top: 50px;
+}
+form button{
+    background-color: #006ECD;
+    color: white;
+    width: 100%;
+    padding: 12px 17px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border: 2px solid #006ECD;
+    font-size: large;
+    font-family: "Jost", sans-serif;
+
+}
+.amount{
+    padding: 20px;
+    width: 90%;
+}
+::placeholder{
+    font-family: "Jost", sans-serif;
+    font-size: large;
+}
+form button:hover{
+    background-color: white;
+    color: #006ECD;
+    cursor: pointer;
+}
+.choose div{
+    background-color: #006ECD;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+}
+.choose div input{
+    float: right;
+}

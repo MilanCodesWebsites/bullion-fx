@@ -1,0 +1,519 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+}
+#account-name {
+  color: #bfbbbb;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #111827;
+  border-bottom: 1px solid #333333;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  width: 2rem;
+  height: 2rem;
+  background-color: #ffd700;
+  border-radius: 50%;
+}
+
+/* Update these styles in your existing CSS file */
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid #333333;
+}
+
+.profile-image-container {
+  width: 80px; /* Reduced from 100px */
+  height: 80px; /* Reduced from 100px */
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+  background-color: #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ffd700; /* Added a gold border for emphasis */
+}
+
+.profile-image-placeholder {
+  color: #ffffff;
+  font-size: 1.75rem; /* Slightly reduced from 2rem */
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 600; /* Made the name slightly bolder */
+}
+
+/* Adjust sidebar item padding for better spacing */
+.sidebar-item {
+  padding: 0.875rem 1rem;
+}
+
+.hamburger {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 20px;
+  position: relative;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger span:nth-child(2) {
+  top: 9px;
+}
+
+.hamburger span:nth-child(3) {
+  top: 18px;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.search-container {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  border-radius: 9999px;
+  border: none;
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666666;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #4a4a4a;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #111827;
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.sidebar-item:hover {
+  background-color: #333333;
+}
+
+.sidebar-item i {
+  margin-right: 0.5rem;
+  width: 20px;
+  text-align: center;
+}
+
+.logout {
+  color: #ff4d4d;
+}
+
+main {
+  padding: 0.7rem;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.balance-card {
+  background-color: #111827;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.balance-card h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.toggle-balance {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.balance-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-balance {
+  font-size: 2rem;
+}
+
+.balance-changes {
+  display: flex;
+  gap: 1rem;
+}
+
+.change span:first-child {
+  font-size: 0.875rem;
+  color: #999999;
+}
+
+.positive {
+  color: #4caf50;
+}
+
+.negative {
+  color: #ff4d4d;
+}
+
+.crypto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.crypto-card {
+  background-color: #111827;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  height: 180px;
+}
+
+.crypto-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.crypto-icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.btc {
+  background-color: #f7931a;
+}
+.eth {
+  background-color: #627eea;
+}
+.ltc {
+  background-color: #bfbbbb;
+}
+.xrp {
+  background-color: #23292f;
+}
+
+.btc::after {
+  content: "₿";
+}
+.eth::after {
+  content: "Ξ";
+}
+.ltc::after {
+  content: "Ł";
+}
+.xrp::after {
+  content: "✕";
+}
+
+.crypto-name h3 {
+  font-size: 1rem;
+}
+
+.crypto-name span {
+  font-size: 0.875rem;
+  color: #999999;
+}
+
+.crypto-balance {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.crypto-change {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.crypto-chart {
+  height: 4rem;
+  background-color: #333333;
+  border-radius: 0.25rem;
+}
+
+.chart-container {
+  background-color: #111827;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.chart-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chart-controls select {
+  background-color: #333333;
+  color: #ffffff;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.chart-price {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.trading-view-widget {
+  height: 400px;
+  background-color: #333333;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.chart-timeframes {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.chart-timeframes button {
+  background-color: #333333;
+  color: #ffffff;
+  border: none;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.recent-transactions {
+  background-color: #111827;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.recent-transactions h3 {
+  margin-bottom: 1rem;
+}
+
+.transaction {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #333333;
+}
+
+.transaction:last-child {
+  border-bottom: none;
+}
+
+.transaction-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.received {
+  background-color: #4caf50;
+}
+
+.sent {
+  background-color: #ff4d4d;
+}
+
+.exchanged {
+  background-color: #ffd700;
+}
+
+.transaction-details {
+  flex-grow: 1;
+}
+
+.transaction-details h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.transaction-details span {
+  font-size: 0.875rem;
+  color: #999999;
+}
+
+.transaction-amount {
+  text-align: right;
+}
+
+.transaction-amount h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.transaction-amount span {
+  font-size: 0.875rem;
+  color: #999999;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .search-container {
+    display: none;
+  }
+  .main {
+    padding: 0rem;
+  }
+  .sidebar {
+    left: -100%;
+    width: 40%;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  main {
+    margin-left: 0;
+  }
+
+  main.sidebar-open {
+    margin-left: 50%;
+  }
+
+  .overlay.active {
+    display: block;
+  }
+
+  .crypto-card {
+    height: 200px;
+    width: 100%;
+  }
+  .balance-card {
+    width: 100%;
+  }
+}

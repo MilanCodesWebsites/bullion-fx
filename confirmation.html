@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdrawal Confirmation - BullionFX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="translate.css">
+    <style>
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004c99;
+            --primary-light: #4d94ff;
+            --accent: #10b981;
+            --bg-dark: #001f3f;
+            --text-light: #ffffff;
+            --text-secondary: #cccccc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #000000, var(--bg-dark), var(--primary), #000000);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: var(--text-light);
+            padding: 20px;
+        }
+
+        .confirmation-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        
+        .success-icon {
+            background-color: rgba(16, 185, 129, 0.1);
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            border: 2px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .success-icon i {
+            font-size: 40px;
+            color: var(--accent);
+        }
+        
+        h1 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            font-size: 2rem;
+        }
+        
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+        
+        .reference-number {
+            background-color: rgba(0, 102, 204, 0.1);
+            border: 1px solid rgba(0, 102, 204, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem auto;
+            max-width: 80%;
+        }
+        
+        .reference-number p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .reference-number strong {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+        
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+        
+        .button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .button:active {
+            transform: translateY(0);
+        }
+        
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.1);
+            z-index: 1;
+        }
+        
+        .timeline-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .timeline-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-icon i {
+            color: white;
+            font-size: 14px;
+        }
+        
+        .timeline-text {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 80px;
+        }
+        
+        .timeline-step.active .timeline-icon {
+            background-color: var(--accent);
+        }
+        
+        .timeline-step.active .timeline-text {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        @media (max-width: 576px) {
+            .confirmation-container {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .success-icon {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .success-icon i {
+                font-size: 30px;
+            }
+            
+            .timeline {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                margin-left: 1rem;
+            }
+            
+            .timeline::before {
+                top: 0;
+                bottom: 0;
+                left: 15px;
+                right: auto;
+                width: 2px;
+                height: auto;
+            }
+            
+            .timeline-step {
+                flex-direction: row;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .timeline-text {
+                max-width: none;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="translate-cont">
+        <button class="toggle-button" onclick="toggleDiv()">Translate</button>
+    </div>
+            <div class="gtranslate_wrapper toggle-div" id="myDiv"></div>
+<script>window.gtranslateSettings = {"default_language":"en","wrapper_selector":".gtranslate_wrapper","switcher_vertical_position":"top","float_switcher_open_direction":"bottom"}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+    
+    <script>
+        function toggleDiv() {
+            const div = document.getElementById('myDiv');
+            div.classList.toggle('show');
+        }
+    </script>
+    <div class="confirmation-container">
+        <div class="logo-container">
+            <i class="fas fa-coins fa-2x" style="color: var(--primary); margin-right: 10px;"></i>
+            <div class="logo">BullionFX</div>
+        </div>
+        
+        <div class="success-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        
+        <h1>Withdrawal Request Submitted</h1>
+        <p>Your withdrawal request has been successfully submitted. We will process your request within 4-5 hours.</p>
+        
+        <div class="timeline">
+            <div class="timeline-step active">
+                <div class="timeline-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="timeline-text">Request Submitted</div>
+            </div>
+            <div class="timeline-step">
+                <div class="timeline-icon">
+                    <i class="fas fa-file-invoice"></i>
+                </div>
+                <div class="timeline-text">Processing</div>
+            </div>
+            <div class="timeline-step">
+                <div class="timeline-icon">
+                    <i class="fas fa-check-double"></i>
+                </div>
+                <div class="timeline-text">Completed</div>
+            </div>
+        </div>
+        
+        <div class="reference-number">
+            <p>Your Reference Number:</p>
+            <strong id="reference-number">WD-23456789</strong>
+        </div>
+        
+        <p>Please reach out to our team in the event of any issues.</p>
+        
+        <a href="dashboard.html" class="button">
+            <i class="fas fa-home"></i> Return to Dashboard
+        </a>
+    </div>
+    
+    <script>
+        // Generate a random reference number
+        document.addEventListener('DOMContentLoaded', function() {
+            const randomNum = Math.floor(Math.random() * 9000000) + 1000000;
+            document.getElementById('reference-number').textContent = `BF-${randomNum}`;
+        });
+    </script>
+</body>
+</html>
