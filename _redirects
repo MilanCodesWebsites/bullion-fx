@@ -1,6 +1,0 @@
-# Dashboard React app - serve index.html for SPA routing
-/dashboard /dashboard/dist/index.html 200
-/dashboard/* /dashboard/dist/index.html 200
-
-# Root HTML site
-/* /index.html 200
