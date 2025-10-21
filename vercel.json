@@ -1,12 +1,16 @@
 {
   "rewrites": [
     {
-      "source": "/dashboard/assets/:path*",
+      "source": "/dashboard/assets/(.*)",
       "destination": "/dashboard/dist/assets/$1"
     },
     {
-      "source": "/dashboard/:path*",
+      "source": "/dashboard/(.*)",
       "destination": "/dashboard/dist/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
