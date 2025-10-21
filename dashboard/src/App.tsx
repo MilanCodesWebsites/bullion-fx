@@ -150,7 +150,7 @@ const AppContent: React.FC = () => {
 function App() {
   return (
     <AuthProvider>
-      <Router>
+      <Router basename="/dashboard">
         <AppContent />
         <Toaster position="top-right" toastOptions={{
           style: {
