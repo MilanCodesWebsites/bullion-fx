@@ -1,19 +1,13 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/dashboard/assets/(.*)",
-      "destination": "/dashboard/assets/$1"
-    },
-    {
-      "source": "/dashboard/(.*)?",
+      "source": "/dashboard/(?!assets)(.*)",
       "destination": "/dashboard/index.html"
     },
     {
-      "source": "/assets/(.*)",
-      "destination": "/assets/$1"
-    },
-    {
-      "source": "/(.*)?",
+      "source": "/(?!assets)(?!dashboard)(.*)",
       "destination": "/index.html"
     }
   ]
