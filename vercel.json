@@ -1,17 +1,3 @@
-{
-  "rewrites": [
-    {
-      "source": "/dashboard/(.+)",
-      "destination": "/dashboard/dist/$1"
-    },
-    {
-      "source": "/dashboard",
-      "destination": "/dashboard/dist/index.html"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
-}
+{}
+
 
