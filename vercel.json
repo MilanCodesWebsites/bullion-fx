@@ -1,3 +1,10 @@
-{}
+{
+  "rewrites": [
+    {
+      "source": "/dashboard/:path*",
+      "destination": "/dashboard/dist/index.html"
+    }
+  ]
+}
 
 
